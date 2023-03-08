@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html>
-<style>
-    table,
-    th,
-    td {
-        border: 1px solid rgb(86, 182, 157);
-    }
-</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Affairs website</title>
+</head>
 
 <body>
+    <div class="header">
+        <img decoding="async" src="images/logo.png" alt=""width="100px" height="60px">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="AddNewStudent.html">Create New Student</a></li>
+            <li><a href="UpdateAndDelete.html">Update Existing Student</a></li>
+            <li><a href="studentStatusPage.html">List Of Students</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+    <hr>
     <center>
         <h1>Update Data For A Student</h1>
     </center>
     <form action="/action_page.php">
         <center>
             <label for="name">Name: </label>
-            <input type="text" id="name" name="name" placeholder="amira"><br><br>
+            <input type="text" id="name" name="name" placeholder="Name"><br><br>
             <label for="ID">ID: </label>
-            <input type="text" id="ID" name="ID" placeholder="20210000"><br><br>
+            <input type="text" id="ID" name="ID" placeholder="ID"><br><br>
             <p>Gender: </p>
             <p>
                 <input type="radio" name="gender" id="male">
@@ -52,10 +64,10 @@
             </select> <br> <br>
 
 
-            <label for="mobile">Mobile: </label>
-            <input type="text" id="mobile" name="mobile" placeholder="01150888345"><br><br>
+            <label for="Phone Number">Phone Number: </label>
+            <input type="text" id="Phone Number" name="Phone Number" placeholder="Phone Number"><br><br>
             <label for="email">Email: </label>
-            <input type="text" id="email" name="email" placeholder="amira@gamil.com"><br><br>
+            <input type="text" id="email" name="email" placeholder="Email"><br><br>
 
             <input type="submit" value="Update">
             <input type="submit" value="Delete">
@@ -68,8 +80,8 @@
     <br><br>
 
 
-    <table style="width:100%">
-        <tr>
+    <table border = "2" style="width:100%">
+        <tr align = "center">
             <th>Name</th>
             <th>ID</th>
             <th>Date Of Birth</th>
@@ -81,34 +93,34 @@
             <th>Email</th>
             <th>Phone Number</th>
         </tr>
-        <tr>
-            <td>Amira Ashraf</td>
-            <td>20210075</td>
-            <td>17/12/2002</td>
-            <td>3.41</td>
-            <td>Female</td>
-            <td>Two</td>
-            <td>Active</td>
-            <td>IS</td>
-            <td>amirazayn5@gmail.com</td>
-            <td>01149535899</td>
+        <tr align = "center">
+            <td>Name1</td>
+            <td>ID1</td>
+            <td>Date Of Birth1</td>
+            <td>GPA1</td>
+            <td>Gender1</td>
+            <td>Level1</td>
+            <td>Status1</td>
+            <td>Department1</td>
+            <td>Email1</td>
+            <td>Phone Number1</td>
         </tr>
-        <tr>
-            <td>Aya Ashraf</td>
-            <td>20190075</td>
-            <td>10/10/2000</td>
-            <td>3.2</td>
-            <td>Female</td>
-            <td>Four</td>
-            <td>Inactive</td>
-            <td>IS</td>
-            <td>ayaashraf@gmail.com</td>
-            <td>01012345678</td>
+        <tr align = "center">
+            <td>Name2</td>
+            <td>ID2</td>
+            <td>Date Of Birth2</td>
+            <td>GPA2</td>
+            <td>Gender2</td>
+            <td>Level2</td>
+            <td>Status2</td>
+            <td>Department2</td>
+            <td>Email2</td>
+            <td>Phone Number2</td>
         </tr>
     </table>
-
-
-
+    <div class="footer">
+        <p>Thank you for visiting Student Affairs. We look forward to serving you</p>
+    </div>
 </body>
 
 </html>
