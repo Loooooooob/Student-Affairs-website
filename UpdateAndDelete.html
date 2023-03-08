@@ -9,45 +9,6 @@
 </style>
 
 <body>
-    <table style="width:100%">
-        <tr>
-            <th>Name</th>
-            <th>ID</th>
-            <th>Date Of Birth</th>
-            <th>GPA</th>
-            <th>Gender</th>
-            <th>Level</th>
-            <th>Status</th>
-            <th>Department</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-        </tr>
-        <tr>
-            <td>Amira Ashraf</td>
-            <td>20210075</td>
-            <td>17/12/2002</td>
-            <td>3.41</td>
-            <td>Female</td>
-            <td>Two</td>
-            <td>Active</td>
-            <td>IS</td>
-            <td>amirazayn5@gmail.com</td>
-            <td>01149535899</td>
-        </tr>
-        <tr>
-            <td>Aya Ashraf</td>
-            <td>20190075</td>
-            <td>10/10/2000</td>
-            <td>3.2</td>
-            <td>Female</td>
-            <td>Four</td>
-            <td>Inactive</td>
-            <td>IS</td>
-            <td>ayaashraf@gmail.com</td>
-            <td>01012345678</td>
-        </tr>
-    </table>
-
     <center>
         <h1>Update Data For A Student</h1>
     </center>
@@ -59,9 +20,9 @@
             <input type="text" id="ID" name="ID" placeholder="20210000"><br><br>
             <p>Gender: </p>
             <p>
-                <input type="radio" id="male">
+                <input type="radio" name="gender" id="male">
                 <label for="male">Male</label>
-                <input type="radio" id="female">
+                <input type="radio" name="gender" id="female">
                 <label for="female">Female</label>
             </p>
             <label for="birthday">Date of Birth:</label>
@@ -104,6 +65,48 @@
     <center>
         <p>Click on the Update button to Update the data OR delete to delete any student.</p>
     </center>
+    <br><br>
+
+
+    <table style="width:100%">
+        <tr>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Date Of Birth</th>
+            <th>GPA</th>
+            <th>Gender</th>
+            <th>Level</th>
+            <th>Status</th>
+            <th>Department</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+        </tr>
+        <tr>
+            <td>Amira Ashraf</td>
+            <td>20210075</td>
+            <td>17/12/2002</td>
+            <td>3.41</td>
+            <td>Female</td>
+            <td>Two</td>
+            <td>Active</td>
+            <td>IS</td>
+            <td>amirazayn5@gmail.com</td>
+            <td>01149535899</td>
+        </tr>
+        <tr>
+            <td>Aya Ashraf</td>
+            <td>20190075</td>
+            <td>10/10/2000</td>
+            <td>3.2</td>
+            <td>Female</td>
+            <td>Four</td>
+            <td>Inactive</td>
+            <td>IS</td>
+            <td>ayaashraf@gmail.com</td>
+            <td>01012345678</td>
+        </tr>
+    </table>
+
 
 
 </body>
