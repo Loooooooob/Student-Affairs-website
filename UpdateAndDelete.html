@@ -6,81 +6,81 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Affairs website</title>
+    <link rel="stylesheet" href="update.css">
 </head>
 
 <body>
-    <div class="header">
-        <img decoding="async" src="images/logo.png" alt="" width="100px" height="60px">
+
+    <header class="header" style="height: 60px;">
         <ul>
             <li><a href="Home.html">Home</a></li>
-            <li><a href="StudentDataBase.html">Student Data Base</a></li>
-            <li><a href="AddNewStudent.html">Create New Student</a></li>
-            <li><a href="UpdateAndDelete.html">Update Existing Student</a></li>
-            <li><a href="studentStatusPage.html">List Of Students</a></li>
+            <li>
+                <select id="selectHeader">
+                    <option>Students</option>
+                    <option>DataBase</option>
+                    <option>Create</option>
+                    <option>Update</option>
+                </select>
+            </li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="login.html">Login</a></li>
+            <li>
+                <button id="btn" onclick="pop_up()" class="modal-btn">Logout</button>
+            </li>
         </ul>
-    </div>
-    <hr>
-    <center>
-        <h1>Update Data For A Student</h1>
-    </center>
-    <form action="/action_page.php">
-        <center>
-            <label for="name">Name: </label>
-            <input type="text" id="name" name="name" placeholder="Name"><br><br>
-            <label for="ID">ID: </label>
-            <input type="text" id="ID" name="ID" placeholder="ID"><br><br>
-            <p>Gender: </p>
-            <p>
+    </header>
+
+    <h1 id="UpdateText">Update Data For A Student</h1>
+
+    <div class="Update">
+        <form action="/action_page.php">
+
+            <label for="name" class="txt1">Name* </label>
+            <input type="text" id="name" name="name" placeholder="Name">
+
+            <label for="email" class="txt1">Email* </label>
+            <input type="text" id="email" name="email" placeholder="Email">
+
+            <label for="birthday" class="txt1">Date of Birth* </label>
+            <input type="date" id="birthday" name="birthday">
+
+            <label for="gender" class="txt1">Gender* </label>
+            <p id="radioGender">
                 <input type="radio" name="gender" id="male">
                 <label for="male">Male</label>
                 <input type="radio" name="gender" id="female">
                 <label for="female">Female</label>
             </p>
-            <label for="birthday">Date of Birth:</label>
-            <input type="date" id="birthday" name="birthday"> <br><br>
-
-            <label for="level">Level:</label>
-            <select name="level" id="level">
-                <option value="level1">Level 1</option>
-                <option value="Level2">Level 2</option>
-                <option value="Level3">Level 3</option>
-                <option value="Level4">Level 4</option>
-            </select> <br> <br>
-
-            <label for="status">Status:</label>
-            <select name="status" id="status">
-                <option value="status">Active</option>
-                <option value="status">Inactive</option>
-            </select> <br> <br>
-
-            <label for="department">Department:</label>
-            <select name="department" id="department">
-                <option value="is">IS</option>
-                <option value="cs">CS</option>
-                <option value="it">IT</option>
-                <option value="ai">AI</option>
-                <option value="ds">DS</option>
-            </select> <br> <br>
-
-
-            <label for="Phone Number">Phone Number: </label>
-            <input type="text" id="Phone Number" name="Phone Number" placeholder="Phone Number"><br><br>
-            <label for="email">Email: </label>
-            <input type="text" id="email" name="email" placeholder="Email"><br><br>
-
             <input type="submit" value="Update">
+        </form>
+
+        <form action="/action_page.php">
+
+            <label for="ID" class="txt2">ID* </label>
+            <input type="text" id="ID" name="ID" placeholder="ID">
+
+            <label for="Phone Number" class="txt2">Phone Number* </label>
+            <input type="text" id="PhoneNumber" name="Phone Number" placeholder="Phone Number">
+
+            <label for="level" class="txt2">Level* </label>
+            <select name="level" id="level">
+                <option value="level1" class ="notSelected">Level 1</option>
+                <option value="Level2" class ="notSelected">Level 2</option>
+                <option value="Level3" class ="notSelected">Level 3</option>
+                <option value="Level4" class ="notSelected">Level 4</option>
+            </select>
+
+
+            <label for="Status" class="txt2">Status* </label>
+            <p id="radioStatus">
+                <input type="radio" name="Status" id="Active">
+                <label for="Active">Active</label>
+                <input type="radio" name="Status" id="Inactive">
+                <label for="Inactive">Inactive</label>
+            </p>
             <input type="submit" value="Delete">
-        </center>
-    </form>
+        </form>
 
-    <center>
-        <p>Click on the Update button to Update the data OR delete to delete any student.</p>
-    </center>
-    <br><br>
-
-
+        <!--
     <table border="2" style="width:100%">
         <tr align="center">
             <th>Name</th>
@@ -119,8 +119,12 @@
             <td>Phone Number2</td>
         </tr>
     </table>
-    <div class="footer">
-        <p>Thank you for visiting Student Affairs. We look forward to serving you</p>
+-->
+
+    </div>
+
+    <div class="footer" style="height: 60px;">
+        <p>Thank you for visiting Student Affairs. We look forward to serving you.</p>
     </div>
 </body>
 
