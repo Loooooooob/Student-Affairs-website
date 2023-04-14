@@ -7,44 +7,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Affairs website</title>
     <link rel="stylesheet" href="update.css">
-    <script src="fun.js"></script>
 </head>
 
 <body>
 
-    <header class="header">
+    <header class="header" style="height: 60px;">
         <ul>
-          <li><a href="Home.html">Home</a></li>
-          <li><select id="studentoptions" onchange="goToPage()">
-            <option value="">Students</option>
-            <option value="AddNewStudent.html">Add</option>
-            <option value="studentStatusPage.html">Status</option>
-            <option value="UpdateAndDelete.html">Update</option>
-            <option value="StudentDataBase.html">DataBase</option>
-            <option value="AssignDep.html">Department</option>
-          </select></li>
-          <li><a href="about.html">About Us</a></li>
-          <li class="test">
-            <button id="btnlogout" onclick="pop_up()" class="modal-btn">Login</button>
-          </li>
-        </ul>  
-      </header>
+            <li><a href="Home.html">Home</a></li>
+            <li>
+                <select id="selectHeader">
+                    <option>Students</option>
+                    <option>DataBase</option>
+                    <option>Create</option>
+                    <option>Update</option>
+                </select>
+            </li>
+            <li><a href="about.html">About Us</a></li>
+            <li>
+                <button id="btnAll" onclick="pop_up()" class="modal-btn">Logout</button>
+            </li>
+        </ul>
+    </header>
 
     <h1 id="UpdateText">Update Data For A Student</h1>
 
-    <div class="Update">
-        <form action="/action_page.php">
+    <div class="updatePageGrid">
+        
+        <form>
 
-            <label for="name" class="txt1">Name* </label>
+            <label for="name" class="updatePageLeftGrid">Name* </label>
             <input type="text" id="name" name="name" placeholder="Name">
 
-            <label for="email" class="txt1">Email* </label>
+            <label for="email" class="updatePageLeftGrid">Email* </label>
             <input type="text" id="email" name="email" placeholder="Email">
 
-            <label for="birthday" class="txt1">Date of Birth* </label>
+            <label for="birthday" class="updatePageLeftGrid">Date of Birth* </label>
             <input type="date" id="birthday" name="birthday">
 
-            <label for="gender" class="txt1">Gender* </label>
+            <label for="gender" class="updatePageLeftGrid">Gender* </label>
             <p id="radioGender">
                 <input type="radio" name="gender" id="male">
                 <label for="male">Male</label>
@@ -54,16 +54,16 @@
             <input type="submit" value="Update">
         </form>
 
-        <form action="/action_page.php">
+        <form>
 
-            <label for="ID" class="txt2">ID* </label>
+            <label for="ID" class="updatePageRightGrid">ID* </label>
             <input type="text" id="ID" name="ID" placeholder="ID">
 
-            <label for="Phone Number" class="txt2">Phone Number* </label>
+            <label for="Phone Number" class="updatePageRightGrid">Phone Number* </label>
             <input type="text" id="PhoneNumber" name="Phone Number" placeholder="Phone Number">
 
-            <label for="level" class="txt2">Level* </label>
-            <select name="level" id="level">
+            <label for="level" class="updatePageRightGrid">Level* </label>
+            <select name="level" id="Level">
                 <option value="level1" class ="notSelected">Level 1</option>
                 <option value="Level2" class ="notSelected">Level 2</option>
                 <option value="Level3" class ="notSelected">Level 3</option>
@@ -71,7 +71,7 @@
             </select>
 
 
-            <label for="Status" class="txt2">Status* </label>
+            <label for="Status" class="updatePageRightGrid">Status* </label>
             <p id="radioStatus">
                 <input type="radio" name="Status" id="Active">
                 <label for="Active">Active</label>
@@ -80,53 +80,11 @@
             </p>
             <input type="submit" value="Delete">
         </form>
-
-        <!--
-    <table border="2" style="width:100%">
-        <tr align="center">
-            <th>Name</th>
-            <th>ID</th>
-            <th>Date Of Birth</th>
-            <th>GPA</th>
-            <th>Gender</th>
-            <th>Level</th>
-            <th>Status</th>
-            <th>Department</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-        </tr>
-        <tr align="center">
-            <td>Name1</td>
-            <td>ID1</td>
-            <td>Date Of Birth1</td>
-            <td>GPA1</td>
-            <td>Gender1</td>
-            <td>Level1</td>
-            <td>Status1</td>
-            <td>Department1</td>
-            <td>Email1</td>
-            <td>Phone Number1</td>
-        </tr>
-        <tr align="center">
-            <td>Name2</td>
-            <td>ID2</td>
-            <td>Date Of Birth2</td>
-            <td>GPA2</td>
-            <td>Gender2</td>
-            <td>Level2</td>
-            <td>Status2</td>
-            <td>Department2</td>
-            <td>Email2</td>
-            <td>Phone Number2</td>
-        </tr>
-    </table>
--->
-
     </div>
 
     <div class="footer" style="height: 60px;">
         <p>Thank you for visiting Student Affairs. We look forward to serving you.</p>
     </div>
-</body>
 
+</body>
 </html>

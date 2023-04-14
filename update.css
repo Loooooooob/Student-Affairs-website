@@ -1,77 +1,75 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
-  }
-  
-  .home{
-    display:grid;
-    grid-template-rows: 60px 120px 1fr 60px;
-    height: 100vh;
-  }
-  
-  .header li{
+}
+
+.header li {
     display: inline;
     margin-right: 50px;
-  }
-  
-  .header li a{
-    text-decoration:none;
+}
+
+.header li a {
+    text-decoration: none;
     color: white;
-  }
-  
-  .header ul{
+}
+
+.header ul {
     height: 100%;
     display: flex;
-    justify-content:flex-end;
+    justify-content: flex-end;
     align-items: center;
-  }
-  
-  .header{
+}
+
+.header {
     background-color: #393E46;
     background-image: url('images/logo.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 30px;
-    height: 70px;
-  }
-  
-  .header ul li:first-child{
+}
+
+.header ul li:first-child {
     font-weight: bold;
-  }
-  
-  select{
+}
+
+
+
+.header ul li:last-child {
+    width: 100px;
+}
+
+#selectHeader {
     background-color: #393E46;
     color: white;
     border: none;
-  }
-  
-  .header ul li:last-child{
-    width: 100px;
-  }
-  
-  #btn{
-    background-color: #19376D;
-    color: white;
-    border: none;
-    border-radius: 15px;
-    width: 100%;
+    height: 18.4px;
+    width: 80px;
+}
+
+#close-btn {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+}
+/*--------------------------------------------------------------------------------------*/
+
+body {
     text-align: center;
-  }
-  #btn:hover{
-  background-color: #7194D2;
-  }
-  #btnlogout {
+    background-color: #F7F7F7;
+}
+
+#btnAll {
     background-color: #F2E7D5;
     color: #393E46;
     border: none;
     border-radius: 15px;
     width: 100%;
+    height: 30px;
     text-align: center;
-  }
-#close-btn {
-    position: absolute;
-    top: 25px;
-    right: 20px;
+}
+
+#btnAll:hover {
+    background-color: #FFD6B5;
 }
 
 #UpdateText {
@@ -90,10 +88,9 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    line-height: 60px;
 }
 
-.Update {
+.updatePageGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 0px;
@@ -102,7 +99,7 @@
     padding: 10px;
 }
 
-#level {
+#Level {
     background-color: #7194D2;
     color: #F2E7D5;
     border: 0px;
@@ -139,11 +136,21 @@ input[type=text]::placeholder {
     margin-left: 150px;
 }
 
-#ID, #PhoneNumber, #level {
+#ID, #PhoneNumber, #Level {
     margin-right: 150px;
 }
 
 option:checked {
+    color: black;
+    background-color: #FFD6B5;
+    border-radius: 10px;
+}
+
+option {
+    border-radius: 10px;
+}
+
+option:hover {
     color: black;
     background-color: #FFD6B5;
     border-radius: 10px;
@@ -155,13 +162,13 @@ option:checked {
     border-radius: 10px;
 }
 
-.txt1 {
+.updatePageLeftGrid {
     display: block;
     text-align: left;
     margin-left: 285px;
 }
 
-.txt2 {
+.updatePageRightGrid {
     display: block;
     text-align: left;
     margin-left: 135px;
@@ -196,6 +203,8 @@ input[value=Update] {
 input[value=Delete] {
     margin-right: 250px;
 }
+
+/*-------------------------------------------------------*/
 
 .footer {
     margin-top: 30px;
