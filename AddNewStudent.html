@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Affairs website</title>
+    <link rel="stylesheet" href="mystyleAdd.css">
 </head>
 
 <body>
@@ -13,65 +14,85 @@
         <img decoding="async" src="images/logo.png" alt="" width="100px" height="60px">
         <ul>
             <li><a href="Home.html">Home</a></li>
-            <li><a href="StudentDataBase.html">Student Data Base</a></li>
-            <li><a href="AddNewStudent.html">Create New Student</a></li>
-            <li><a href="UpdateAndDelete.html">Update Existing Student</a></li>
-            <li><a href="studentStatusPage.html">List Of Students</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="login.html">Login</a></li>
+            <li><a id="log" href="login.html">login</a></li>
         </ul>
     </div>
-    <hr>
-    <form align="center">
-        <h1>Add a new student</h1>
-        <label>Name :</label>
-        <input type="text" placeholder="Full name"><br><br>
+    <div class="headLine">
 
-        <label>ID :</label>
-        <input type="" placeholder="ID"><br><br>
+        <h1 class="headLine">Add a New Student</h1>
+    </div>
+    <div class="BodyOfForm">
+        <form >
+            <div>                
+                <label>Name 
+                    <input type="text" id="NameOfStudent"  placeholder="Full name" value="">
+                </label>
 
-        <label>Gender :</label><br><br>
-        <input type="radio" name="Gender" value="female">female
-        <input type="radio" name="Gender" value="male">male<br><br>
-
-        <label>Date of birth :</label>
-        <input type="date"><br><br>
-
-        <label>Level :</label>
-        <select name="choice">
-            <option value="1">Level 1</option>
-            <option value="2" selected>Level 2</option>
-            <option value="3">Level 3</option>
-            <option value="4">Level 4</option>
-        </select><br><br>
-
-        <label>Status :</label>
-        <select name="choice">
-            <option value="Active" selected>Active</option>
-            <option value="Not Active">Not Active</option>
-        </select><br><br>
-
-        <label>Department :</label>
-        <select name="choice">
-            <option value="CS">CS</option>
-            <option value="IS" selected>IS</option>
-            <option value="AI">AI</option>
-            <option value="IT">IT</option>
-            <option value="DS">DS</option>
-        </select><br><br>
-
-        <label>Moblie :</label>
-        <input type="tel"><br><br>
-
-        <label>Email :</label>
-        <input type="email" placeholder="asvvfr@dsrred.com"><br><br>
-        <button type="submit">Submit</button>
-        <button type="reset">Reset</button>
-
-    </form>
+                <label>ID 
+                    <input id="ID" type="number" placeholder="ID">
+                </label>
+            </div>
+            <div>
+                <label>Moblie 
+                    <input id="Moblie" type="tel" placeholder="+02">
+                </label>
+        
+                <label>Email 
+                    <input id="Email" type="email" placeholder="example@gmail.com">
+                </label>
+            </div>
+            
+            <div>
+                <label>Date of birth 
+                    <input id="Dateofbirth" type="date">
+                </label>
+                
+                <label>Level 
+                    <select id="Level"  name="choice">
+                        <option value="1">Level 1</option>
+                        <option value="2" selected>Level 2</option>
+                        <option value="3">Level 3</option>
+                        <option value="4">Level 4</option>
+                    </select>
+                </label>
+            </div>
+            
+            <div>
+                <label>Department 
+                    <select id="Department" name="choice">
+                        <option value="CS">CS</option>
+                        <option value="IS" selected>IS</option>
+                        <option value="AI">AI</option>
+                        <option value="IT">IT</option>
+                        <option value="DS">DS</option>
+                    </select>
+                </label>
+                <div class="Activation" >
+                    <label>Activation Stutes</label>
+                    <label for="">
+                        <input id="Active" type="radio" name="ActivationStutes" value="Active">Active
+                        <input id="Active" type="radio" name="ActivationStutes" value="NotActive">Not Active
+                    </label>
+                </div>
+            </div>
+            <div class="Gender">
+                <label>Gender</label>
+                <label for="">
+                    <input id="Gender" type="radio" name="Gender" value="male">Male
+                    <input id="Gender" type="radio" name="Gender" value="female">Female
+                </label>
+            </div>
+            <div class="Send">
+                <button onclick="Set_Info()">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
     <div class="footer">
         <p>Thank you for visiting Student Affairs. We look forward to serving you</p>
     </div>
+    <script src="add.js"></script>
 </body>
 
 </html>
