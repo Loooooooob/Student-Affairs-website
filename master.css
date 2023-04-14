@@ -1,63 +1,64 @@
 *{
-    box-sizing: border-box;
-    margin: 0;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 .home{
-    display:grid;
-    grid-template-rows: 60px 120px 1fr 60px;
-    height: 100vh;
+  display:grid;
+  grid-template-rows: 60px 120px 1fr 60px;
+  height: 100vh;
 }
 
 .header li{
-    display: inline;
-    margin-right: 50px;
+  display: inline;
+  margin-right: 50px;
 }
 
 .header li a{
-    text-decoration:none;
-    color: white;
+  text-decoration:none;
+  color: white;
 }
 
 .header ul{
-    height: 100%;
-    display: flex;
-    justify-content:flex-end;
-    align-items: center;
+  height: 100%;
+  display: flex;
+  justify-content:flex-end;
+  align-items: center;
 }
 
 .header{
-    background-color: #393E46;
-    background-image: url('images/logo.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: 30px;
+  background-color: #393E46;
+  background-image: url('images/logo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 30px;
+  height: 70px;
 }
 
 .header ul li:first-child{
-    font-weight: bold;
+  font-weight: bold;
 }
 
 select{
-    background-color: #393E46;
-    color: white;
-    border: none;
+  background-color: #393E46;
+  color: white;
+  border: none;
 }
 
 .header ul li:last-child{
-    width: 100px;
+  width: 100px;
 }
 
 #btn{
-    background-color: #19376D;
-    color: white;
-    border: none;
-    border-radius: 15px;
-    width: 100%;
-    text-align: center;
+  background-color: #19376D;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  width: 100%;
+  text-align: center;
 }
 #btn:hover{
-  background-color: #7194D2;
+background-color: #7194D2;
 }
 
 #close-btn{
@@ -98,12 +99,17 @@ select{
 }
 
 .footer{
-    background-color: #393E46;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
+  background-color: #393E46;
+  color: white;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  font-weight: bold;
+  height:50px;
+  bottom: 0; 
+  position: fixed;
+  width: 100%;
 }
 
 .modal {
@@ -189,6 +195,81 @@ input[type="text"]::placeholder, input[type="password" ]::placeholder{
     margin-top: 50px;
     margin-bottom: 10px;
     margin-left: 80px;
+}
+
+.aboutusbody {
+  text-align: center;
+  background-color: #F7F7F7;
+  font-family: sans-serif;
+  font-style: normal;
+  letter-spacing: 0.2px;
+}
+.page_title_add{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  margin-top: 50px;
+}
+
+#btnlogout {
+  background-color: #F2E7D5;
+  color: #393E46;
+  border: none;
+  border-radius: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+#btn:hover {
+  background-color: #FFD6B5;
+}
+
+#close-btn {
+  position: absolute;
+  top: 25px;
+  right: 20px;
+}
+.page_title_add{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  margin-top: 50px;
+}
+
+#AboutUs {
+  width: 360px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 35px;
+  background-color: #19376D;
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.AboutContent {
+    
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 40px; 
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+.headLine{
+  width: 360px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 35px;
+  background-color: #19376D;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 

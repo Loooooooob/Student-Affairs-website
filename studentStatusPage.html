@@ -6,21 +6,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Affairs website</title>
+    <script src="fun.js"></script>
 
 </head>
 <body>
-  <div class="header">
-    <img decoding="async" src="images/logo.png" alt=""width="100px" height="60px">
+  <header class="header">
     <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="StudentDataBase.html">Student Data Base</a></li>
-    <li><a href="AddNewStudent.html">Create New Student</a></li>
-    <li><a href="UpdateAndDelete.html">Update Existing Student</a></li>
-    <li><a href="studentStatusPage.html">List Of Students</a></li>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="login.html">Login</a></li>
-  </ul>
-</div>
+      <li><a href="Home.html">Home</a></li>
+      <li><select id="studentoptions" onchange="goToPage()">
+        <option value="">Students</option>
+        <option value="AddNewStudent.html">Add</option>
+        <option value="studentStatusPage.html">Status</option>
+        <option value="UpdateAndDelete.html">Update</option>
+        <option value="StudentDataBase.html">DataBase</option>
+        <option value="AssignDep.html">Department</option>
+      </select></li>
+      <li><a href="about.html">About Us</a></li>
+      <li class="test">
+        <button id="btnlogout" onclick="pop_up()" class="modal-btn">Login</button>
+      </li>
+    </ul>  
+  </header>
 <hr>
     <h1>Change student status</h1>
     <table border="2" style="width:100%">

@@ -7,32 +7,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Affairs website</title>
     <link rel="stylesheet" href="mystyleAdd.css">
+    <script src="fun.js"></script>
 </head>
 
 <body>
-    <div class="header">
-        <img decoding="async" src="images/logo.png" alt="" width="100px" height="60px">
+    <header class="header">
         <ul>
-            <li><a href="Home.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a id="log" href="login.html">login</a></li>
-        </ul>
-    </div>
-    <div class="headLine">
+          <li><a href="Home.html">Home</a></li>
+          <li><select id="studentoptions" onchange="goToPage()">
+            <option value="">Students</option>
+            <option value="AddNewStudent.html">Add</option>
+            <option value="studentStatusPage.html">Status</option>
+            <option value="UpdateAndDelete.html">Update</option>
+            <option value="StudentDataBase.html">DataBase</option>
+            <option value="AssignDep.html">Department</option>
+          </select></li>
+          <li><a href="about.html">About Us</a></li>
+          <li class="test">
+            <button id="btnlogout" onclick="pop_up()" class="modal-btn">Login</button>
+          </li>
+        </ul>  
+      </header>
 
+    <div class="page_title_add">
         <h1 class="headLine">Add a New Student</h1>
     </div>
+
     <div class="BodyOfForm">
         <form >
             <div>                
                 <label>Name 
                     <input type="text" id="NameOfStudent"  placeholder="Full name" value="">
                 </label>
-
                 <label>ID 
                     <input id="ID" type="number" placeholder="ID">
                 </label>
             </div>
+            
             <div>
                 <label>Moblie 
                     <input id="Moblie" type="tel" placeholder="+02">
@@ -57,7 +68,6 @@
                     </select>
                 </label>
             </div>
-            
             <div>
                 <label>Department 
                     <select id="Department" name="choice">

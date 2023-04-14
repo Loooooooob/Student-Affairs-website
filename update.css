@@ -1,70 +1,73 @@
-body {
-    text-align: center;
-    background-color: #F7F7F7;
-}
-
-* {
+*{
     box-sizing: border-box;
     margin: 0;
-}
-
-.header li {
+  }
+  
+  .home{
+    display:grid;
+    grid-template-rows: 60px 120px 1fr 60px;
+    height: 100vh;
+  }
+  
+  .header li{
     display: inline;
     margin-right: 50px;
-}
-
-.header li a {
-    text-decoration: none;
+  }
+  
+  .header li a{
+    text-decoration:none;
     color: white;
-}
-
-.header ul {
+  }
+  
+  .header ul{
     height: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content:flex-end;
     align-items: center;
-}
-
-.header {
+  }
+  
+  .header{
     background-color: #393E46;
     background-image: url('images/logo.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 30px;
-}
-
-.header ul li:first-child {
+    height: 70px;
+  }
+  
+  .header ul li:first-child{
     font-weight: bold;
-}
-
-
-
-.header ul li:last-child {
-    width: 100px;
-}
-
-#selectHeader {
+  }
+  
+  select{
     background-color: #393E46;
     color: white;
     border: none;
-    height: 18.4px;
-    width: 80px;
-}
-
-#btn {
+  }
+  
+  .header ul li:last-child{
+    width: 100px;
+  }
+  
+  #btn{
+    background-color: #19376D;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    width: 100%;
+    text-align: center;
+  }
+  #btn:hover{
+  background-color: #7194D2;
+  }
+  #btnlogout {
     background-color: #F2E7D5;
     color: #393E46;
     border: none;
     border-radius: 15px;
     width: 100%;
-    height: 30px;
     text-align: center;
-}
-
-#btn:hover {
-    background-color: #FFD6B5;
-}
-
+  }
 #close-btn {
     position: absolute;
     top: 25px;
