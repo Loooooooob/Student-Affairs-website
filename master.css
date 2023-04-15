@@ -53,6 +53,7 @@
   background-color: #19376D;
   color: white;
   border: none;
+  padding: 5px;
   border-radius: 15px;
   width: 100%;
   text-align: center;
@@ -284,18 +285,18 @@ color: black;
 
 /*-------------------------------Add && Update---------------------------------*/
 
-.headlinediv{
+.headlinediv {
   display: flex;
   justify-content: center;
   align-items: center;
- 
+
 }
-.headlinediv h1{
+
+.headlinediv h1 {
   color: white;
   background-color: #19376D;
-  font-family: sans-serif;
   font-weight: 600;
-  font-size: 25px;
+  font-size: 30px;
   padding: 15px;
   margin-top: 36px;
   margin-bottom: 50px;
@@ -304,64 +305,72 @@ color: black;
   text-align: center;
 }
 
-.BodyOfForm{
+.BodyOfForm {
   display: flex;
   justify-content: center;
 }
-.BodyOfForm form{
-  width: 900px;
+
+.BodyOfForm form {
+  width: 1000px;
 }
-.BodyOfForm form div label,input,select{
+
+.BodyOfForm form div label,
+input,
+select {
   display: block;
-  margin-bottom: 25px;   
+  margin-bottom: 10px;
 }
-.BodyOfForm form div:not(.Gender,.Activation){
+
+.BodyOfForm form div:not(.Gender, .Activation) {
   display: flex;
-  justify-content: space-between;  
+  justify-content: space-between;
 }
-.BodyOfForm form div input:not([name=Gender],[name="ActivationStutes"]){
-  background-color:#7194D2;
-  border: 2px solid #19376D;
-  color: #F2E7D5;
-  font-size: large;
-  font-family: sans-serif;
-  padding: 5px;
-  border-radius: 10px;
-  width: 350px;
-  height: 40px;
-  margin-bottom:20px ;
-}
-.BodyOfForm form div select{
+
+.BodyOfForm form div input:not([name=Gender], [name="ActivationStutes"]) {
   background-color: #7194D2;
   border: 2px solid #19376D;
-  font-size: large;
-  font-family: sans-serif;
+  color: #F2E7D5;
+  padding: 5px;
+  border-radius: 10px;
+  width: 350px;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+.BodyOfForm form div select {
+  background-color: #7194D2;
+  border: 2px solid #19376D;
   padding: 5px;
   color: #F2E7D5;
   border-radius: 10px;
   width: 350px;
   height: 40px;
 }
-input::placeholder{
+
+input::placeholder {
   color: #F2E7D5;
   /* text-align: center; */
 }
-.op{
+
+.op {
   background-color: #F2E7D5;
   color: black;
 }
-.op:checked{
+
+.op:checked {
   background-color: #FFD6B5;
 }
-.Send{
+
+.Send {
   margin: 60px;
-  display: flex; 
-  justify-content: center; 
+  display: flex;
+  justify-content: center;
 }
-.Send button{
-  border-radius:10px ;
-  background-color: #393E46 ;
-  border: 2px ; 
+
+.Send button {
+  border-radius: 10px;
+  background-color: #393E46;
+  border: 2px;
   color: white;
   width: 300px;
   height: 40px;
@@ -370,32 +379,39 @@ input::placeholder{
   cursor: pointer;
   transition: 0.8s ease;
 }
-.Send button:hover{
+
+.Send button:hover {
   transform: scale(1.1);
 }
-.Gender{
+
+.Gender {
   display: block;
   margin-right: 100px;
 }
-.Gender input{
+
+.Gender input {
   display: inline;
   width: 50px;
 }
-.Gender label{
+
+.Gender label {
   font-size: 20px;
-  margin: 20px;
+  margin-top: 5px;
 }
-.Activation{
+
+.Activation {
   display: block;
   margin-right: 80px;
 }
-.Activation input{
+
+.Activation input {
   display: inline;
   width: 50px;
 }
-.Activation label{
+
+.Activation label {
   font-size: 20px;
-  margin: 20px;
+  margin-top: 0px;
 }
 
 /*-------------------------------------------------------------------------------*/
