@@ -6,439 +6,160 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Student Affairs website</title>
-	<script src="fun.js"></script>
+	<link rel="stylesheet" href="master.css">
+    <script src="fun.js"></script>
 </head>
 
 <body>
 	<header class="header">
-        <ul>
-          <li><a href="Home.html">Home</a></li>
-          <li><select id="studentoptions" onchange="goToPage()">
-            <option value="">Students</option>
-            <option value="AddNewStudent.html">Add</option>
-            <option value="studentStatusPage.html">Status</option>
-            <option value="UpdateAndDelete.html">Update</option>
-            <option value="StudentDataBase.html">DataBase</option>
-            <option value="AssignDep.html">Department</option>
-          </select></li>
-          <li><a href="about.html">About Us</a></li>
+		<ul>
+		  <li><a href="Home.html">Home</a></li>
+		  <li><select id="studentoptions" onchange="goToPage()">
+			  <option value="">Students</option>
+			  <option value="AddNewStudent.html">Add</option>
+			  <option value="studentStatusPage.html">Status</option>
+			  <option value="UpdateAndDelete.html">Update</option>
+			  <option value="StudentDataBase.html">DataBase</option>
+			  <option value="AssignDep.html">Department</option>
+			</select></li>
+		  <li><a href="about.html">About Us</a></li>
 		  <li class="buttoninout">
 			<button id="btnlogin" onclick="pop_up()" class="modal-btn">Login</button>
-            <button id="btnlogout" class="modal-btn">Logout</button>
-          </li>
-        </ul>  
-      </header>
+			<button id="btnlogout" class="modal-btn">Logout</button>
+		  </li>
+		</ul>
+	  </header>
 	<hr>
+	<div class="page_title_add">
+		<h1 class="databaseh1">Student Table</h1>
+	</div>
+	
+	<div class="search">
+		<div class="searchimage1"></div>
+		<input class="searchbar" type="text" placeholder="Search by Name">
+	</div>
+		
+		<table class="tabledb">
+		<tr class="trthdb">
+			<th class="thdb">Name</th>
+			<th class="thdb">ID</th>
+			<th class="thdb">Date Of Birth</th>
+			<th class="thdb">GPA</th>
+			<th class="thdb">Email</th>
+			<th class="thdb">Gender</th>
+			<th class="thdb">Status</th>
+			<th class="thdb">Phone Number</th>
+			<th class="thdb">Level</th>
+			<th class="thdb">Department</th>
+		</tr>
+			<tr class="trdb">
+				<td class="tddb">Arrora</td>
+				<td class="tddb">#876369</td>
+				<td class="tddb">12 Dec, 2020</td>
+				<td class="tddb">3.7</td>
+				<td class="tddb">Arrora@gmail.com</td>
+				<td class="tddb">Male</td>
+				<td class="tddb">Active</td>
+				<td class="tddb">01155448757</td>
+				<td class="tddb">Two</td>
+				<td class="tddb">CS</td>
+				
+			</tr>
+			<tr class="trdb">
+				<td class="tddb">Arrora</td>
+				<td class="tddb">#876369</td>
+				<td class="tddb">12 Dec, 2020</td>
+				<td class="tddb">3.7</td>
+				<td class="tddb">Arrora@gmail.com</td>
+				<td class="tddb">Male</td>
+				<td class="tddb">Active</td>
+				<td class="tddb">01155448757</td>
+				<td class="tddb">Two</td>
+				<td class="tddb">CS</td>
+				
+			</tr>
+			<tr class="trdb">
+				<td class="tddb">Arrora</td>
+				<td class="tddb">#876369</td>
+				<td class="tddb">12 Dec, 2020</td>
+				<td class="tddb">3.7</td>
+				<td class="tddb">Arrora@gmail.com</td>
+				<td class="tddb">Male</td>
+				<td class="tddb">Active</td>
+				<td class="tddb">01155448757</td>
+				<td class="tddb">Two</td>
+				<td class="tddb">CS</td>
+				
+			</tr>
+			<tr class="trdb">
+				<td class="tddb">Arrora</td>
+				<td class="tddb">#876369</td>
+				<td class="tddb">12 Dec, 2020</td>
+				<td class="tddb">3.7</td>
+				<td class="tddb">Arrora@gmail.com</td>
+				<td class="tddb">Male</td>
+				<td class="tddb">Active</td>
+				<td class="tddb">01155448757</td>
+				<td class="tddb">Two</td>
+				<td class="tddb">CS</td>
+				
+			</tr>
+			<tr class="trdb">
+				<td class="tddb">Arrora</td>
+				<td class="tddb">#876369</td>
+				<td class="tddb">12 Dec, 2020</td>
+				<td class="tddb">3.7</td>
+				<td class="tddb">Arrora@gmail.com</td>
+				<td class="tddb">Male</td>
+				<td class="tddb">Active</td>
+				<td class="tddb">01155448757</td>
+				<td class="tddb">Two</td>
+				<td class="tddb">CS</td>
+				
+			</tr>
+			<tr class="trdb">
+				<td class="tddb">Arrora</td>
+				<td class="tddb">#876369</td>
+				<td class="tddb">12 Dec, 2020</td>
+				<td class="tddb">3.7</td>
+				<td class="tddb">Arrora@gmail.com</td>
+				<td class="tddb">Male</td>
+				<td class="tddb">Active</td>
+				<td class="tddb">01155448757</td>
+				<td class="tddb">Two</td>
+				<td class="tddb">CS</td>
+				
+			</tr>
+			<tr class="trdb">
+				<td class="tddb">Arrora</td>
+				<td class="tddb">#876369</td>
+				<td class="tddb">12 Dec, 2020</td>
+				<td class="tddb">3.7</td>
+				<td class="tddb">Arrora@gmail.com</td>
+				<td class="tddb">Male</td>
+				<td class="tddb">Active</td>
+				<td class="tddb">01155448757</td>
+				<td class="tddb">Two</td>
+				<td class="tddb">CS</td>
+				
+			</tr>
+			<tr class="trdb">
+				<td class="tddb">Arrora</td>
+				<td class="tddb">#876369</td>
+				<td class="tddb">12 Dec, 2020</td>
+				<td class="tddb">3.7</td>
+				<td class="tddb">Arrora@gmail.com</td>
+				<td class="tddb">Male</td>
+				<td class="tddb">Active</td>
+				<td class="tddb">01155448757</td>
+				<td class="tddb">Two</td>
+				<td class="tddb">CS</td>
+				
+			</tr>
+		</table>
+		
+	
 
-	<h1>List Of Existing Student In Data Base</h1>
-	<table border="2">
-		<tr align="center">
-			<th style width="10%">Name
-			</th>
-			<th style width="10%">ID
-			</th>
-			<th style width="10%">Date Of Birth
-			</th>
-			<th style width="10%">GPA
-			</th>
-			<th style width="10%">Gender
-			</th>
-			<th style width="10%">Level
-			</th>
-			<th style width="10%">Status
-			</th>
-			<th style width="10%">Department
-			</th>
-			<th style width="10%">Email
-			</th>
-			<th style width="10%">Phone Number
-			</th>
-		</tr>
-		<tr align="center">
-			<td>
-				Alaa Ibrahim
-			</td>
-			<td>
-				20210239
-			</td>
-			<td>
-				11/1/2004
-			</td>
-			<td>
-				3.4
-			</td>
-			<td>
-				M
-			</td>
-			<td>
-				TWO
-			</td>
-			<td>
-				Active
-			</td>
-			<td>
-				Computer science
-			</td>
-			<td>
-				alaa754@gmail.com
-			</td>
-			<td>
-				01158373074
-			</td>
-		</tr>
-		<tr align="center">
-			<td>
-				Tawfik
-			</td>
-			<td>
-				20210139
-			</td>
-			<td>
-				11/1/2003
-			</td>
-			<td>
-				4
-			</td>
-			<td>
-				M
-			</td>
-			<td>
-				TWO
-			</td>
-			<td>
-				Active
-			</td>
-			<td>
-				Computer science
-			</td>
-			<td>
-				Tawfik754@gmail.com
-			</td>
-			<td>
-				01112373074
-			</td>
-		</tr>
-		<tr align="center">
-			<td>
-				Habiba
-			</td>
-			<td>
-				20210249
-			</td>
-			<td>
-				11/1/2002
-			</td>
-			<td>
-				3.4
-			</td>
-			<td>
-				F
-			</td>
-			<td>
-				TWO
-			</td>
-			<td>
-				Active
-			</td>
-			<td>
-				Computer science
-			</td>
-			<td>
-				Habiba754@gmail.com
-			</td>
-			<td>
-				0111121234
-			</td>
-		</tr>
-		<tr align="center">
-			<td>
-				Ahmed
-			</td>
-			<td>
-				20210559
-			</td>
-			<td>
-				11/1/2000
-			</td>
-			<td>
-				3.2
-			</td>
-			<td>
-				M
-			</td>
-			<td>
-				TWO
-			</td>
-			<td>
-				Active
-			</td>
-			<td>
-				Computer science
-			</td>
-			<td>
-				AboAlaa754@gmail.com
-			</td>
-			<td>
-				0111111433
-			</td>
-		</tr>
-		<tr align="center">
-			<td>
-				KAreem
-			</td>
-			<td>
-				20210059
-			</td>
-			<td>
-				13/2/2003
-			</td>
-			<td>
-				3.3
-			</td>
-			<td>
-				M
-			</td>
-			<td>
-				TWO
-			</td>
-			<td>
-				Active
-			</td>
-			<td>
-				Computer science
-			</td>
-			<td>
-				KareemKimo754@gmail.com
-			</td>
-			<td>
-				01223111433
-			</td>
-		</tr>
-		<tr align="center">
-			<td>
-				Nira
-			</td>
-			<td>
-				20190559
-			</td>
-			<td>
-				10/10/2002
-			</td>
-			<td>
-				3.1
-			</td>
-			<td>
-				F
-			</td>
-			<td>
-				TWO
-			</td>
-			<td>
-				Active
-			</td>
-			<td>
-				Computer science
-			</td>
-			<td>
-				Nira754@gmail.com
-			</td>
-			<td>
-				01021111833
-			</td>
-		</tr>
-		<tr align="center">
-			<td>
-				Alaa Ibrahim
-			</td>
-			<td>
-				20210239
-			</td>
-			<td>
-				11/1/2004
-			</td>
-			<td>
-				3.4
-			</td>
-			<td>
-				M
-			</td>
-			<td>
-				TWO
-			</td>
-			<td>
-				Active
-			</td>
-			<td>
-				Computer science
-			</td>
-			<td>
-				alaa754@gmail.com
-			</td>
-			<td>
-				01158373074
-			</td>
-		</tr>
-		<tr align="center">
-			<td>
-				Tawfik
-			</td>
-			<td>
-				20210139
-			</td>
-			<td>
-				11/1/2003
-			</td>
-			<td>
-				4
-			</td>
-			<td>
-				M
-			</td>
-			<td>
-				TWO
-			</td>
-			<td>
-				Active
-			</td>
-			<td>
-				Computer science
-			</td>
-			<td>
-				Tawfik754@gmail.com
-			</td>
-			<td>
-				01112373074
-			</td>
-		</tr>
-		<tr align="center">
-			<td>
-				Habiba
-			</td>
-			<td>
-				20210249
-			</td>
-			<td>
-				11/1/2002
-			</td>
-			<td>
-				3.4
-			</td>
-			<td>
-				F
-			</td>
-			<td>
-				TWO
-			</td>
-			<td>
-				Active
-			</td>
-			<td>
-				Computer science
-			</td>
-			<td>
-				Habiba754@gmail.com
-			</td>
-			<td>
-				0111121234
-			</td>
-		</tr>
-		<tr align="center">
-			<td>
-				Ahmed
-			</td>
-			<td>
-				20210559
-			</td>
-			<td>
-				11/1/2000
-			</td>
-			<td>
-				3.2
-			</td>
-			<td>
-				M
-			</td>
-			<td>
-				TWO
-			</td>
-			<td>
-				Active
-			</td>
-			<td>
-				Computer science
-			</td>
-			<td>
-				AboAlaa754@gmail.com
-			</td>
-			<td>
-				0111111433
-			</td>
-		</tr>
-		<tr align="center">
-			<td>
-				KAreem
-			</td>
-			<td>
-				20210059
-			</td>
-			<td>
-				13/2/2003
-			</td>
-			<td>
-				3.3
-			</td>
-			<td>
-				M
-			</td>
-			<td>
-				TWO
-			</td>
-			<td>
-				Active
-			</td>
-			<td>
-				Computer science
-			</td>
-			<td>
-				KareemKimo754@gmail.com
-			</td>
-			<td>
-				01223111433
-			</td>
-		</tr>
-		<tr align="center">
-			<td>
-				Nira
-			</td>
-			<td>
-				20190559
-			</td>
-			<td>
-				10/10/2002
-			</td>
-			<td>
-				3.1
-			</td>
-			<td>
-				F
-			</td>
-			<td>
-				TWO
-			</td>
-			<td>
-				Active
-			</td>
-			<td>
-				Computer science
-			</td>
-			<td>
-				Nira754@gmail.com
-			</td>
-			<td>
-				01021111833
-			</td>
-		</tr>
-	</table>
 	<div class="footer">
 		<p>Thank you for visiting Student Affairs. We look forward to serving you</p>
 	</div>

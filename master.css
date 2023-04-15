@@ -431,6 +431,7 @@ input::placeholder {
   margin-top: 0px;
 }
 
+
 /*-------------------------------------------------------------------------------*/
 
 /* @media only screen and (max-width: 600px) {
@@ -540,3 +541,88 @@ input::placeholder {
   margin-top: 80px;
 }
 /* ------------------------------------------------ */
+
+.databaseh1{
+  width: 450px;
+  height: 50px;
+  text-align: center;
+  justify-items: center;
+  align-items: center;
+  padding: 5px;
+  font-size: 35px;
+  background-color: #19376D;
+  color: white;
+  border-radius: 10px;
+  margin: 20px;
+  }
+  
+  .tabledb {
+    background-color: #f2e7d5; 
+  }
+  .tabledb {
+    border-collapse: collapse;
+    width: 90%;
+    height: 50px;
+    border-radius: 10px;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+    margin-left: 80px;
+    margin-top: 20px; 
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 90px;
+  }
+  .trdb:nth-child(even) {
+    background-color: #ffffff;
+  }
+  .tddb,.thdb{
+    padding: 8px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .search{
+    display: flex;
+    margin: 50px;
+    margin-left: 100px;
+    height: 50px;
+    border-radius: 10px;
+    width:510px;
+    padding-top: 6px;
+    background-color: #393E46;
+    
+  }
+  .searchimage1{
+    background-image: url('images/search1.png');
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    background-position: center;
+    background-color: white;
+    width: 50px;
+    border-radius: 5px;
+    margin-left: 20px; 
+    height: 30px;
+    padding-top: 34px;
+    border: 1px solid white; 
+  }
+  .searchbar{
+    margin-top: 0;
+    margin-left: 30px;
+    width: 400px;
+    height: 30px;
+    padding: 18px;
+    border-radius: 5px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+    
+    border: 1px solid white; 
+  }  
+  .searchbar::placeholder{
+    color:#393E46;
+    text-align: left;
+  }
