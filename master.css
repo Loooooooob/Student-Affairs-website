@@ -626,3 +626,15 @@ input::placeholder {
     color:#393E46;
     text-align: left;
   }
+  #databaseoptions {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 5px;
+    padding: 0px;
+    width: 50px;
+    background-color: transparent;
+    cursor: pointer;
+  }

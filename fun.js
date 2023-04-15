@@ -19,6 +19,7 @@ function checkData() {
     alert("Username or password incorrect");
   }
 }
+
 function goToPage() {
   var select = document.getElementById("studentoptions");
   var selectedOption = select.options[select.selectedIndex];
@@ -31,6 +32,17 @@ function goToPage() {
     }
   }
 }
+function ChangePage() {
+  var select = document.getElementById("databaseoptions");
+  var selectedOption = select.options[select.selectedIndex];
+  if (selectedOption.value != "") {
+    if (localStorage.getItem("isloggedin") === "true")  {
+      window.location.href = selectedOption.value;
+    } 
+  }
+}
+
+
 function switchbtn(){
   if (localStorage.getItem("isloggedin") === "true") {
     document.getElementById("btnlogin").style.zIndex = "1";
