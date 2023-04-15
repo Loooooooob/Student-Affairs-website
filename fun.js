@@ -14,3 +14,16 @@ function goToPage() {
     window.location.href = selectedOption.value;
   }
 }
+function checkData(){
+  const UserName=document.querySelector(".EnterUsername").value;
+  const Password=document.querySelector(".EnterPassword").value;
+  var Login=document.querySelector("#btn");
+  
+  if(UserName=="Tawfik" && Password=="123456"){
+    Login.innerHTML="Logout";
+    Login.style.backgroundColor="#F9F4ED";
+    Login.style.color="black";
+    close_modal();
+  }
+}
+
