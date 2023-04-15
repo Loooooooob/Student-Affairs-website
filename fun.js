@@ -10,7 +10,7 @@ function close_modal() {
 function checkData() {
   const userName = document.querySelector(".EnterUsername").value;
   const password = document.querySelector(".EnterPassword").value;
-  if ((userName === "Tawfik" && password === "123456" )||(userName === "Habiba" && password === "1234567" )) {
+  if ((userName === "Tawfik" && password === "12345" )||(userName === "Habiba" && password === "123456" ) ||(userName === "Amira" && password === "1234567" )||(userName === "Omran" && password === "12345678" )||(userName === "Alaa" && password === "123456789" )||(userName === "Karem" && password === "1234567890" )) {
     close_modal();
     localStorage.setItem("isloggedin", true);
     switchbtn();
