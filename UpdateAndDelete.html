@@ -11,80 +11,98 @@
 
 <body>
 
-    <header class="header" style="height: 60px;">
+    <header class="header">
         <ul>
-            <li><a href="Home.html">Home</a></li>
-            <li>
-                <select id="selectHeader">
-                    <option>Students</option>
-                    <option>DataBase</option>
-                    <option>Create</option>
-                    <option>Update</option>
-                </select>
-            </li>
-            <li><a href="about.html">About Us</a></li>
-            <li>
-                <button id="btnAll" onclick="pop_up()" class="modal-btn">Logout</button>
-            </li>
-        </ul>
-    </header>
+          <li><a href="Home.html">Home</a></li>
+          <li><select id="studentoptions" onchange="goToPage()">
+            <option value="">Students</option>
+            <option value="AddNewStudent.html">Add</option>
+            <option value="studentStatusPage.html">Status</option>
+            <option value="UpdateAndDelete.html">Update</option>
+            <option value="StudentDataBase.html">DataBase</option>
+            <option value="AssignDep.html">Department</option>
+          </select></li>
+          <li><a href="about.html">About Us</a></li>
+          <li class="test">
+            <button id="btnlogout" onclick="pop_up()" class="modal-btn">Login</button>
+          </li>
+        </ul>  
+      </header>
 
-    <h1 id="UpdateText">Update Data For A Student</h1>
+    <div class="headlinediv">
+        <h1 >Update Data For A Student</h1>
+    </div>
 
-    <div class="updatePageGrid">
+    <div class="BodyOfForm">
+        <form >
+            <div>                
+                <label>Name 
+                    <input type="text" id="NameOfStudent"  placeholder="Full name" value="">
+                </label>
+                <label>ID 
+                    <input id="ID" type="number" placeholder="ID">
+                </label>
+            </div>
+            
+            <div>
+                <label>Moblie 
+                    <input id="Moblie" type="tel" placeholder="+02">
+                </label>
         
-        <form>
-
-            <label for="name" class="updatePageLeftGrid">Name* </label>
-            <input type="text" id="name" name="name" placeholder="Name">
-
-            <label for="email" class="updatePageLeftGrid">Email* </label>
-            <input type="text" id="email" name="email" placeholder="Email">
-
-            <label for="birthday" class="updatePageLeftGrid">Date of Birth* </label>
-            <input type="date" id="birthday" name="birthday">
-
-            <label for="gender" class="updatePageLeftGrid">Gender* </label>
-            <p id="radioGender">
-                <input type="radio" name="gender" id="male">
-                <label for="male">Male</label>
-                <input type="radio" name="gender" id="female">
-                <label for="female">Female</label>
-            </p>
-            <input type="submit" value="Update">
-        </form>
-
-        <form>
-
-            <label for="ID" class="updatePageRightGrid">ID* </label>
-            <input type="text" id="ID" name="ID" placeholder="ID">
-
-            <label for="Phone Number" class="updatePageRightGrid">Phone Number* </label>
-            <input type="text" id="PhoneNumber" name="Phone Number" placeholder="Phone Number">
-
-            <label for="level" class="updatePageRightGrid">Level* </label>
-            <select name="level" id="Level">
-                <option value="level1" class ="notSelected">Level 1</option>
-                <option value="Level2" class ="notSelected">Level 2</option>
-                <option value="Level3" class ="notSelected">Level 3</option>
-                <option value="Level4" class ="notSelected">Level 4</option>
-            </select>
-
-
-            <label for="Status" class="updatePageRightGrid">Status* </label>
-            <p id="radioStatus">
-                <input type="radio" name="Status" id="Active">
-                <label for="Active">Active</label>
-                <input type="radio" name="Status" id="Inactive">
-                <label for="Inactive">Inactive</label>
-            </p>
-            <input type="submit" value="Delete">
+                <label>Email 
+                    <input id="Email" type="email" placeholder="example@gmail.com">
+                </label>
+            </div>
+            
+            <div>
+                <label>Date of birth 
+                    <input id="Dateofbirth" type="date">
+                </label>
+                
+                <label>Level 
+                    <select id="Level"  name="choice">
+                        <option class="op" value="1">Level 1</option>
+                        <option class="op" value="2" selected>Level 2</option>
+                        <option class="op" value="3">Level 3</option>
+                        <option class="op" value="4">Level 4</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <label>Department 
+                    <select id="Department" name="choice">
+                        <option class="op" value="CS">CS</option>
+                        <option class="op" value="IS" selected>IS</option>
+                        <option class="op" value="AI">AI</option>
+                        <option class="op" value="IT">IT</option>
+                        <option class="op" value="DS">DS</option>
+                    </select>
+                </label>
+                <div class="Activation" >
+                    <label>Activation Stutes</label>
+                    <label for="">
+                        <input id="Active" type="radio" name="ActivationStutes" value="Active">Active
+                        <input id="Active" type="radio" name="ActivationStutes" value="NotActive">Not Active
+                    </label>
+                </div>
+            </div>
+            <div class="Gender">
+                <label>Gender</label>
+                <label for="">
+                    <input id="Gender" type="radio" name="Gender" value="male">Male
+                    <input id="Gender" type="radio" name="Gender" value="female">Female
+                </label>
+            </div>
+            <div class="Send">
+                <button onclick="Set_Info()">Update</button>
+                <button type="reset">Delete</button>
+            </div>
         </form>
     </div>
 
     <div class="footer" style="height: 60px;">
         <p>Thank you for visiting Student Affairs. We look forward to serving you.</p>
     </div>
-
+    <script src="fun.js"></script>
 </body>
 </html>

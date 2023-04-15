@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Affairs website</title>
+    <!-- <link rel="stylesheet" href="dep.css"> -->
+    <link rel="stylesheet" href="master.css">
+    <script src="fun.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <ul>
+      <li><a href="Home.html">Home</a></li>
+      <li><select id="studentoptions" onchange="goToPage()">
+        <option value="">Students</option>
+        <option value="AddNewStudent.html">Add</option>
+        <option value="studentStatusPage.html">Status</option>
+        <option value="UpdateAndDelete.html">Update</option>
+        <option value="StudentDataBase.html">DataBase</option>
+        <option value="AssignDep.html">Department</option>
+      </select></li>
+      <li><a href="about.html">About Us</a></li>
+      <li class="test">
+        <button id="btn" onclick="pop_up()" class="modal-btn">Login</button>
+      </li>
+    </ul>  
+  </header>
+    <hr>
+    
+    <div class="headlinediv">
+      <h1 class="headLine">Assign Department</h1>
+    </div>
+    
+
+    <div class="newdep">
+
+
+    <div class="column column1">
+      
+      <label class="label">Name:</label>
+      <input class="inp" type="text" placeholder="Enter Name">
+
+      <label class="label">Department :</label>
+        <select class="inp">
+            <option class="op" value="CS">CS</option>
+            <option class="op" value="IS" selected>IS</option>
+            <option class="op" value="AI">AI</option>
+            <option class="op" value="IT">IT</option>
+            <option class="op" value="DS">DS</option>
+        </select>
+    </div>
+
+
+
+
+
+    <div class="column column2">
+      <label class="label">ID :</label>
+      <input class="inp" type="text" placeholder="Enter Student ID"> 
+
+      <label class="label">Level :</label>
+        <select class="inp">
+            <option class="op" value="1">Level 1</option>
+            <option class="op" value="2" selected>Level 2</option>
+            <option class="op" value="3">Level 3</option>
+            <option class="op" value="4">Level 4</option>
+        </select>
+
+    </div> 
+
+  </div>
+  <div class="assign">
+    <button class="assign_btn btn" type="assign" id="assign">Assign</button> 
+  </div>
+    <div class="footer">
+        Thank you for visiting Student Affairs. We look forward to serving you
+      </div>
+</body>
+
+</html>

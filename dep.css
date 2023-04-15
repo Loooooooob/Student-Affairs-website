@@ -1,0 +1,75 @@
+.newdep{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  .column{
+    width: 100%;
+    height: 100%;
+  }
+  
+  .column1{
+    padding-left: 380px;
+  }
+  
+  .column2{
+    padding-left: 100px;
+  }
+  
+  .label{
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .inp{
+    margin-bottom: 20px;
+    border-radius: 10px;
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    color: black;
+    border: 1px solid #7194D2;
+    background-color: #7194D2;
+  }
+
+  .btn{
+    background-color: #393E46;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 34px;
+    margin-bottom: 100px;
+    margin-left: 100px;
+    
+  }
+  .op{
+    background-color: #F9F4ED;
+  }
+  .op:checked{
+    background-color: #FFD6B5;
+  }
+  
+  .reset_btn{
+    margin-left: 0;
+    margin-top: 80px;
+  }
+  .delete_btn{
+    margin-left: 0;
+   
+  }
+  .assign{
+    margin-left: 580px;
+  }
+  .assign_btn{
+    margin-right: 300;
+    margin-top: 80px;
+  }

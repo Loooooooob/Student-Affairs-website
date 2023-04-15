@@ -24,6 +24,8 @@ function Set_Info(){
     
     const mystudent=new student(Name,ID,Moblie,Email,DateOfBirth,Level,Department,Active,Gender);
     
-    localStorage.setItem("test",JSON.stringify(mystudent));
+    localStorage.setItem(Name,JSON.stringify(mystudent));
 };
 // localStorage.clear();
+
+console.log(localStorage.getItem('tawfik'));

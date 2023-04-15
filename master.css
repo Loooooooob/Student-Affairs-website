@@ -39,12 +39,12 @@
   font-weight: bold;
 }
 
-select {
+#studentoptions{
   background-color: #393E46;
   color: white;
   border: none;
+  margin: 0px;
 }
-
 .header ul li:last-child {
   width: 100px;
 }
@@ -54,6 +54,7 @@ select {
   color: white;
   border: none;
   border-radius: 15px;
+  padding: 5px;
   width: 100%;
   height: 30px;
   text-align: center;
@@ -112,7 +113,6 @@ select {
   font-weight: bold;
   height: 50px;
   bottom: 0;
-  position: fixed;
   width: 100%;
 }
 
@@ -210,10 +210,11 @@ select {
   margin-top: 50px;
 }
 
-#btnlogout {
+#btnlogout{
   background-color: #F2E7D5;
   color: #393E46;
   border: none;
+  padding: 5px;
   border-radius: 15px;
   width: 100%;
   text-align: center;
@@ -272,163 +273,120 @@ select {
   border-radius: 10px;
 }
 
-/*---------------------------------------------------------------------------------*/
+/*-------------------------------Add && Update---------------------------------*/
 
-body {
-  text-align: center;
-  background-color: #F7F7F7;
-}
-
-#btnAll {
-  background-color: #F2E7D5;
-  color: #393E46;
-  border: none;
-  border-radius: 15px;
-  width: 100%;
-  height: 30px;
-  text-align: center;
-}
-
-#btnAll:hover {
-  background-color: #FFD6B5;
-}
-
-#UpdateText {
-  text-align: center;
-  font-weight: normal;
-  color: white;
-  margin-top: 30px;
-  margin-bottom: 50px;
-  padding-top: 10px;
-  width: 30%;
-  height: 60px;
-  background-color: #19376D;
-  border-radius: 20px;
-
-  /* to center the text*/
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.updatePageGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 0px;
-  align-items: center;
+.headlinediv{
+  display: flex;
   justify-content: center;
-  padding: 10px;
+  align-items: center;
+ 
 }
-
-#Level {
-  background-color: #7194D2;
-  color: #F2E7D5;
-  border: 0px;
-  height: 40px;
-  width: 348px;
-  margin-top: 7px;
-  margin-bottom: 35px;
-  padding-left: 5px;
-  border-radius: 10px;
-  border: 1px solid #19376D;
-}
-
-input[type=text],
-input[type=date],
-input[type=password] {
-  background-color: #7194D2;
-  color: #F2E7D5;
-  border: 0px;
-  margin-top: 7px;
-  margin-bottom: 35px;
-  padding-left: 5px;
-  height: 40px;
-  width: 348px;
-  border-radius: 10px;
-  border: 1px solid #19376D;
-
-}
-
-input[type=text]::placeholder,
-input[type=password]::placeholder {
-  color: #F2E7D5;
-  padding-left: 5px;
-}
-
-#name,
-#email,
-#birthday {
-  margin-left: 150px;
-}
-
-#ID,
-#PhoneNumber,
-#Level {
-  margin-right: 150px;
-}
-
-option:checked {
-  color: black;
-  background-color: #FFD6B5;
-  border-radius: 10px;
-}
-
-option {
-  border-radius: 10px;
-}
-
-option:hover {
-  color: black;
-  background-color: #FFD6B5;
-  border-radius: 10px;
-}
-
-.notSelected {
-  color: black;
-  background-color: #F9F4ED;
-  border-radius: 10px;
-}
-
-.updatePageLeftGrid {
-  display: block;
-  text-align: left;
-  margin-left: 285px;
-}
-
-.updatePageRightGrid {
-  display: block;
-  text-align: left;
-  margin-left: 135px;
-}
-
-#radioStatus {
-  margin-right: 310px;
-  margin-top: 10px;
-}
-
-#radioGender {
-  margin-right: 30px;
-  margin-top: 10px;
-}
-
-input[type=submit] {
-  background-color: #393E46;
+.headlinediv h1{
   color: white;
-  border: none;
-  border-radius: 10px;
+  background-color: #19376D;
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+  padding: 15px;
+  margin-top: 36px;
+  margin-bottom: 50px;
+  border-radius: 20px;
   width: 40%;
-  height: 40px;
   text-align: center;
-  margin-top: 40px;
-  margin-bottom: 20px;
 }
 
-input[value=Update] {
-  margin-left: 250px;
+.BodyOfForm{
+  display: flex;
+  justify-content: center;
 }
-
-input[value=Delete] {
-  margin-right: 250px;
+.BodyOfForm form{
+  width: 900px;
+}
+.BodyOfForm form div label,input,select{
+  display: block;
+  margin-bottom: 25px;   
+}
+.BodyOfForm form div:not(.Gender,.Activation){
+  display: flex;
+  justify-content: space-between;  
+}
+.BodyOfForm form div input:not([name=Gender],[name="ActivationStutes"]){
+  background-color:#7194D2;
+  border: 2px solid #19376D;
+  color: #F2E7D5;
+  font-size: large;
+  font-family: sans-serif;
+  padding: 5px;
+  border-radius: 10px;
+  width: 350px;
+  height: 40px;
+  margin-bottom:20px ;
+}
+.BodyOfForm form div select{
+  background-color: #7194D2;
+  border: 2px solid #19376D;
+  font-size: large;
+  font-family: sans-serif;
+  padding: 5px;
+  color: #F2E7D5;
+  border-radius: 10px;
+  width: 350px;
+  height: 40px;
+}
+input::placeholder{
+  color: #F2E7D5;
+  /* text-align: center; */
+}
+.op{
+  background-color: #F2E7D5;
+  color: black;
+}
+.op:checked{
+  background-color: #FFD6B5;
+}
+.Send{
+  margin: 60px;
+  display: flex; 
+  justify-content: center; 
+}
+.Send button{
+  border-radius:10px ;
+  background-color: #393E46 ;
+  border: 2px ; 
+  color: white;
+  width: 300px;
+  height: 40px;
+  font-family: sans-serif;
+  margin: 5px;
+  cursor: pointer;
+  transition: 0.8s ease;
+}
+.Send button:hover{
+  transform: scale(1.1);
+}
+.Gender{
+  display: block;
+  margin-right: 100px;
+}
+.Gender input{
+  display: inline;
+  width: 50px;
+}
+.Gender label{
+  font-size: 20px;
+  margin: 20px;
+}
+.Activation{
+  display: block;
+  margin-right: 80px;
+}
+.Activation input{
+  display: inline;
+  width: 50px;
+}
+.Activation label{
+  font-size: 20px;
+  margin: 20px;
 }
 
 /*-------------------------------------------------------------------------------*/
@@ -463,3 +421,75 @@ input[value=Delete] {
   }
 
 }
+/* -------------------------Asign -------------------------*/
+.newdep{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.column{
+  width: 100%;
+  height: 100%;
+}
+
+.column1{
+  padding-left: 380px;
+  
+}
+
+.column2{
+  padding-left: 100px;
+}
+
+.label{
+  display: block;
+  margin-bottom: 10px;
+}
+
+.inp{
+  margin-bottom: 20px;
+  border-radius: 10px;
+  width: 300px;
+  height: 50px;
+  color: white;
+  border: 1px solid #7194D2;
+  background-color: #7194D2;
+}
+
+.btn{
+  background-color: #393E46;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  width: 200px;
+  height: 40px;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 34px;
+  margin-bottom: 100px;
+  margin-left: 100px;
+  
+}
+.reset_btn{
+  margin-left: 0;
+  margin-top: 80px;
+}
+.delete_btn{
+  margin-left: 0;
+ 
+}
+.assign{
+  /* margin-left: 580px; */
+  display: flex;
+  justify-content: center;
+}
+.assign_btn{
+  margin-right: 300;
+  margin-top: 80px;
+}
+/* ------------------------------------------------ */
