@@ -7,28 +7,31 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Student Affairs website</title>
 	<link rel="stylesheet" href="master.css">
-    <script src="fun.js"></script>
+	<script src="fun.js"></script>
 </head>
 
 <body>
 	<header class="header">
 		<ul>
-		  <li><a href="Home.html">Home</a></li>
-		  <li><select id="studentoptions" onchange="goToPage()">
-			  <option value="">Students</option>
-			  <option value="AddNewStudent.html">Add</option>
-			  <option value="studentStatusPage.html">Status</option>
-			  <option value="UpdateAndDelete.html">Update</option>
-			  <option value="StudentDataBase.html">DataBase</option>
-			  <option value="AssignDep.html">Department</option>
+			<li><a href="Home.html">Home</a></li>
+			<li><select id="studentoptions" onchange="goToPage()">
+				<option value="">Students</option>
+				<option value="AddNewStudent.html">Add</option>
+				<option value="studentStatusPage.html">Status</option>
+				<option value="UpdateAndDelete.html">Update</option>
+				<option value="StudentDataBase.html">DataBase</option>
+				<option value="AssignDep.html">Department</option>
 			</select></li>
-		  <li><a href="about.html">About Us</a></li>
-		  <li class="buttoninout">
-			<button id="btnlogin" onclick="pop_up()" class="modal-btn">Login</button>
-			<button id="btnlogout" class="modal-btn">Logout</button>
-		  </li>
-		</ul>
-	  </header>
+			<li><a href="about.html">About Us</a></li>
+			<!-- <li class="test">
+				<button id="btn" onclick="pop_up()" class="modal-btn">Login</button>
+			</li> -->
+			<li class="buttoninout">
+				<button id="btnlogin" onclick="pop_up()" class="modal-btn">Login</button>
+				<button id="btnlogout" class="modal-btn">Logout</button>
+			  </li>
+        </ul>  
+	</header>
 	<hr>
 	<div class="page_title_add">
 		<h1 class="databaseh1">Student Table</h1>
@@ -36,9 +39,11 @@
 	
 	<div class="search">
 		<div class="searchimage1"></div>
-		<input class="searchbar" type="text" placeholder="Search by Name">
+		<input id="searchbar" type="text" placeholder="Search by Name" onkeyup="Search()";>
 	</div>
 		
+	
+	
 		<table class="tabledb">
 		<tr class="trthdb">
 			<th class="thdb">Name</th>
@@ -59,7 +64,7 @@
 				<td class="tddb">3.7</td>
 				<td class="tddb">Arrora@gmail.com</td>
 				<td class="tddb">Male</td>
-				<td class="tddb">Active</td>
+				<td class="tddb">Status</td>
 				<td class="tddb">01155448757</td>
 				<td class="tddb">Two</td>
 				<td class="tddb">CS</td>
@@ -72,11 +77,22 @@
 				<td class="tddb">3.7</td>
 				<td class="tddb">Arrora@gmail.com</td>
 				<td class="tddb">Male</td>
-				<td class="tddb">Active</td>
+				<td class="tddb">Status</td>
 				<td class="tddb">01155448757</td>
 				<td class="tddb">Two</td>
 				<td class="tddb">CS</td>
-				
+			</tr>
+			<tr class="trdb">
+				<td class="tddb">Alaa</td>
+				<td class="tddb">#876369</td>
+				<td class="tddb">12 Dec, 2020</td>
+				<td class="tddb">3.7</td>
+				<td class="tddb">Arrora@gmail.com</td>
+				<td class="tddb">Male</td>
+				<td class="tddb">Status</td>
+				<td class="tddb">01155448757</td>
+				<td class="tddb">Two</td>
+				<td class="tddb">CS</td>
 			</tr>
 			<tr class="trdb">
 				<td class="tddb">Arrora</td>
@@ -85,11 +101,10 @@
 				<td class="tddb">3.7</td>
 				<td class="tddb">Arrora@gmail.com</td>
 				<td class="tddb">Male</td>
-				<td class="tddb">Active</td>
+				<td class="tddb">Status</td>
 				<td class="tddb">01155448757</td>
 				<td class="tddb">Two</td>
 				<td class="tddb">CS</td>
-				
 			</tr>
 			<tr class="trdb">
 				<td class="tddb">Arrora</td>
@@ -98,11 +113,10 @@
 				<td class="tddb">3.7</td>
 				<td class="tddb">Arrora@gmail.com</td>
 				<td class="tddb">Male</td>
-				<td class="tddb">Active</td>
+				<td class="tddb">Status</td>
 				<td class="tddb">01155448757</td>
 				<td class="tddb">Two</td>
 				<td class="tddb">CS</td>
-				
 			</tr>
 			<tr class="trdb">
 				<td class="tddb">Arrora</td>
@@ -111,11 +125,10 @@
 				<td class="tddb">3.7</td>
 				<td class="tddb">Arrora@gmail.com</td>
 				<td class="tddb">Male</td>
-				<td class="tddb">Active</td>
+				<td class="tddb">Status</td>
 				<td class="tddb">01155448757</td>
 				<td class="tddb">Two</td>
 				<td class="tddb">CS</td>
-				
 			</tr>
 			<tr class="trdb">
 				<td class="tddb">Arrora</td>
@@ -124,11 +137,10 @@
 				<td class="tddb">3.7</td>
 				<td class="tddb">Arrora@gmail.com</td>
 				<td class="tddb">Male</td>
-				<td class="tddb">Active</td>
+				<td class="tddb">Status</td>
 				<td class="tddb">01155448757</td>
 				<td class="tddb">Two</td>
 				<td class="tddb">CS</td>
-				
 			</tr>
 			<tr class="trdb">
 				<td class="tddb">Arrora</td>
@@ -137,24 +149,10 @@
 				<td class="tddb">3.7</td>
 				<td class="tddb">Arrora@gmail.com</td>
 				<td class="tddb">Male</td>
-				<td class="tddb">Active</td>
+				<td class="tddb">Status</td>
 				<td class="tddb">01155448757</td>
 				<td class="tddb">Two</td>
 				<td class="tddb">CS</td>
-				
-			</tr>
-			<tr class="trdb">
-				<td class="tddb">Arrora</td>
-				<td class="tddb">#876369</td>
-				<td class="tddb">12 Dec, 2020</td>
-				<td class="tddb">3.7</td>
-				<td class="tddb">Arrora@gmail.com</td>
-				<td class="tddb">Male</td>
-				<td class="tddb">Active</td>
-				<td class="tddb">01155448757</td>
-				<td class="tddb">Two</td>
-				<td class="tddb">CS</td>
-				
 			</tr>
 		</table>
 		
