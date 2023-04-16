@@ -79,7 +79,10 @@ window.onload = function () {
     }
 
 };
-
+function gotohomepage(){
+  window.location.href = "home.html";
+ }
+ 
 function Search() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("searchbar");
