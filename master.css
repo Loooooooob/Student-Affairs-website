@@ -135,6 +135,9 @@
   height: 50px;
   bottom: 0;
   width: 100%;
+  height: 50px;
+  /* margin-top: 2000px; */
+  /* padding-top:500px ; */
 }
 
 .modal {
@@ -626,7 +629,7 @@ input::placeholder {
     color:#393E46;
     text-align: left;
   }
-  #databaseoptions {
+  .databaseoptions {
     width: 30px;
     height: 30px;
     border: none;
