@@ -1,12 +1,12 @@
 #search-bar {
-    position: absolute;
-    margin-top: 15px;
+     position: absolute;
+    margin-top: 22px;
     display: flex;
     justify-content: center;
     border: 20px;
     width: 500px;
     height: 43px;
-    left: 155px;
+    left: 105px;
     top: 215px;
     background: linear-gradient(0deg, #393E46, #393E46);
     border-radius: 10px;

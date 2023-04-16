@@ -28,7 +28,7 @@ function searchByName(name) {
         let key = localStorage.key(i);
         let student = JSON.parse(localStorage.getItem(key));
 
-        if (name === student[0].toLowerCase()) {
+        if (name && name === student[0]?.toLowerCase()) {
 
             const newRow = table.insertRow();
             const nameCell = newRow.insertCell(0);
@@ -41,12 +41,12 @@ function searchByName(name) {
             statusCell.innerHTML = `
         <label>
           <input type="radio" name=${"activity" + i} value="activity" id=${"active" + key}
-                                                            ${student[1] ? 'checked' : ''}> Active
+                                                            ${student[1] ? 'checked' : ''} style="display: inline-flex"> Active
         </label>
         
         <label>
           <input type="radio" name=${"activity" + i} value="inactivity" id=${"inactive" + key} 
-                                                            ${!student[1] ? 'checked' : ''}> Inactive
+                                                            ${!student[1] ? 'checked' : ''}  style="display: inline-flex"> Inactive
         </label>`;
 
             if (table.rows.length % 2 === 1) {
@@ -81,12 +81,12 @@ function searchByID(ID) {
     statusCell.innerHTML = `
         <label>
           <input type="radio" name="activity" value="activity" id="active1" 
-                                ${student[1] ? 'checked' : ''} > Active
+                                ${student[1] ? 'checked' : ''}  style="display: inline-flex" > Active
         </label>
         
         <label>
           <input type="radio" name="activity" value="inactivity" id="inactive1" 
-                              ${!student[1] ? 'checked' : ''} > Inactive
+                              ${!student[1] ? 'checked' : ''}  style="display: inline-flex" > Inactive
         </label>
 
     `;
