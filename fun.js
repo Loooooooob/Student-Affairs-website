@@ -1,3 +1,12 @@
+/*get data from local storage*/ 
+var data;
+if(localStorage.getItem("allStudents") != null){
+  data = JSON.parse(localStorage.getItem("allStudents"));
+} 
+else{
+  data = [];
+}
+
 function pop_up() {
   document.getElementById("login-modal").style.display = "block";
   document.getElementById("homeid").style.filter = "blur(5px)";
@@ -20,6 +29,7 @@ function goToPage() {
     }
   }
 }
+
 function ChangePage(select) {
   var selectedOption = select.options[select.selectedIndex];
   
@@ -91,6 +101,7 @@ function Search() {
     }
   }
 }
+
 function checklevel() {
   var select = document.getElementById("Level");
   var selectedOption = select.options[select.selectedIndex];
@@ -100,7 +111,7 @@ function checklevel() {
 }
 
 class Student {
-  constructor(name, ID, mobile, email, dateOfBirth, level, department, active, gender) {
+  constructor(name, ID, mobile, email, dateOfBirth, level, department, active, gender, gpa) {
     this.name = name;
     this.ID = ID;
     this.mobile = mobile;
@@ -110,10 +121,11 @@ class Student {
     this.department = department;
     this.active = active;
     this.gender = gender;
+    this.gpa = gpa;
   }
 }
 
-function setStudentInfo() {
+function addStudentInfo() {
   const name = document.querySelector("#NameOfStudent").value;
   const ID = document.querySelector("#ID").value;
   const mobile = document.querySelector("#Moblie").value;
@@ -123,6 +135,40 @@ function setStudentInfo() {
   const department = document.querySelector("#Department").value;
   const active = document.querySelector("#Active").checked;
   const gender = document.querySelector("#Gender").value;
-  const student = new Student(name, ID, mobile, email, dateOfBirth, level, department, active, gender);
-  localStorage.setItem(ID, JSON.stringify(student));
+  const gpa = document.querySelector("#gpa").value;
+  const student = new Student(name, ID, mobile, email, dateOfBirth, level, department, active, gender, gpa);
+  data.push(student);
+  set(data);
+}
+
+/*st data in local storage*/
+function set(s){
+  localStorage.setItem("allStudents", JSON.stringify(s));
+}
+
+function updateTable(){
+  let table = '';
+  for(let i = 0; i < data.length; i++){
+    table = `
+    <tr class="trdb">
+    <td class="tddb">${data[i].name}</td>
+    <td class="tddb">${data[i].ID}</td>
+    <td class="tddb">${data[i].dateOfBirth}</td>
+    <td class="tddb">${data[i].gpa}</td>
+    <td class="tddb">${data[i].email}</td>
+    <td class="tddb">${data[i].gender}</td>
+    <td class="tddb">${data[i].active}</td>
+    <td class="tddb">${data[i].mobile}</td>
+    <td class="tddb">${data[i].level}</td>
+    <td class="tddb">${data[i].department}</td>
+    <td class="tddb">
+      <select id="databaseoptions1" class="databaseoptions" onchange="ChangePage(databaseoptions1)">
+        <option value=""></option>
+        <option value="UpdateAndDelete.html">Update</option>
+        <option value="AssignDep.html">Department</option>
+      </select>
+    </td>
+  </tr>
+    `;
+  }
 }
