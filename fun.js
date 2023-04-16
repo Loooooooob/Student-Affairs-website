@@ -71,6 +71,7 @@ window.onload = function() {
   if (localStorage.getItem("isloggedin") !== "true" && window.location.href.indexOf("/home.html") === -1) {
     window.location.href = "home.html";
   }
+  
 };
 
 function Search() {
