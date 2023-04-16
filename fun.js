@@ -133,15 +133,74 @@ function addStudentInfo() {
   const dateOfBirth = document.querySelector("#Dateofbirth").value;
   const level = document.querySelector("#Level").value;
   const department = document.querySelector("#Department").value;
-  const active = document.querySelector("#Active").checked;
-  const gender = document.querySelector("#Gender").value;
+  var active = document.getElementsByName('ActivationStutes');
+    var avtiveValue;
+    for (var i = 0, length = active.length; i < length; i++) {
+        if (active[i].checked) {
+          avtiveValue = active[i].value=="Active"?true:false;
+            break;
+        }
+    }
+
+  var gender = document.getElementsByName('Gender');
+    var genderValue;
+    for (var i = 0, length = gender.length; i < length; i++) {
+        if (gender[i].checked) {
+          genderValue = gender[i].value;
+            break;
+        }
+    }
   const gpa = document.querySelector("#gpa").value;
-  const student = new Student(name, ID, mobile, email, dateOfBirth, level, department, active, gender, gpa);
+  const student = new Student(name, ID, mobile, email, dateOfBirth, level, department, avtiveValue, genderValue, gpa);
+
   data.push(student);
   set(data);
+
+  if(student.active == true) {
+    window.location.href = "StudentDataBase.html";
+  } 
+  else {
+    window.location.href = "studentStatusPage.html";
+  }
 }
 
 /*st data in local storage*/
 function set(s){
   localStorage.setItem("allStudents", JSON.stringify(s));
+}
+
+function viewTable(){
+  var body = document.getElementById("tcontent");
+  body.innerHTML = ``;
+  var table = '';
+  for(var i = 0; i < data.length; i++){
+    if(data[i].active == true) {
+      table += `
+    <tr class="trdb">
+    <td class="tddb">${data[i].name}</td>
+    <td class="tddb">${data[i].ID}</td>
+    <td class="tddb">${data[i].dateOfBirth}</td>
+    <td class="tddb">${data[i].gpa}</td>
+    <td class="tddb">${data[i].email}</td>
+    <td class="tddb">${data[i].gender}</td>
+    <td class="tddb">${data[i].active?"Active":"Inactive"}</td>
+    <td class="tddb">${data[i].mobile}</td>
+    <td class="tddb">${data[i].level}</td>
+    <td class="tddb">${data[i].department}</td>
+    <td class="tddb">
+      <select id="databaseoptions1" class="databaseoptions" onchange="ChangePage(databaseoptions1)">
+        <option value=""></option>
+        <option value="UpdateAndDelete.html">Update</option>
+        <option value="AssignDep.html">Department</option>
+      </select>
+    </td>
+  </tr>
+    `;
+    }
+  }
+  body.innerHTML = table;
+}
+
+if(window.location.href.includes("StudentDataBase.html")) {
+  viewTable();
 }
