@@ -9,7 +9,6 @@
 	<link rel="stylesheet" href="master.css">
 	<script src="fun.js"></script>
 </head>
-
 <body>
 	<header class="header">
 		<ul>
@@ -25,7 +24,7 @@
 			<li><a href="about.html">About Us</a></li>
 			<li class="buttoninout">
 				<button id="btnlogin" onclick="pop_up()" class="modal-btn">Login</button>
-				<button id="btnlogout" class="modal-btn">Logout</button>
+				<button id="btnlogout" onclick="logout()"class="modal-btn">Logout</button>
 			  </li>
         </ul>  
 	</header>
@@ -39,8 +38,6 @@
 		<input id="searchbar" type="text" placeholder="Search by Name" onkeyup="Search()";>
 	</div>
 		
-	
-	
 		<table class="tabledb">
 		<tr class="trthdb">
 			<th class="thdb">Name</th>
@@ -208,8 +205,6 @@
 				</td>
 			</tr>
 		</table>
-		
-	
 
 	<div class="footer">
 		<p>Thank you for visiting Student Affairs. We look forward to serving you</p>
