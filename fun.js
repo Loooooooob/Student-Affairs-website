@@ -91,3 +91,74 @@ function Search() {
     }
   }
 }
+function checklevel() {
+  var select = document.getElementById("Level");
+  var selectedOption = select.options[select.selectedIndex];
+  if (selectedOption.value == "1" || selectedOption.value == "2") {
+    document.getElementById("Department").value = "General";
+  } 
+}
+// class Student {
+//   constructor(name, ID, mobile, email, dateOfBirth, level, department, active, gender) {
+//     this.name = name;
+//     this.ID = ID;
+//     this.mobile = mobile;
+//     this.email = email;
+//     this.dateOfBirth = dateOfBirth;
+//     this.level = level;
+//     this.department = department;
+//     this.active = active;
+//     this.gender = gender;
+//   }
+// }
+
+// function setStudentInfo() {
+
+//   const name = document.querySelector("#NameOfStudent").value;
+//   const ID = document.querySelector("#ID").value;
+//   const mobile = document.querySelector("#Moblie").value;
+//   const email = document.querySelector("#Email").value;
+//   const dateOfBirth = document.querySelector("#Dateofbirth").value;
+//   const level = document.querySelector("#Level").value;
+//   const department = document.querySelector("#Department").value;
+//   const active = document.querySelector("#Active").checked;
+//   const gender = document.querySelector("#Gender").value;
+//   const student = new Student(name, ID, mobile, email, dateOfBirth, level, department, active, gender);
+//   localStorage.setItem(ID, JSON.stringify(student));
+// }
+
+// function loadStudentInfo(ID) {
+//   const studentData = localStorage.getItem(ID);
+//   if (studentData) {
+//     const parsedData = JSON.parse(studentData);
+//     document.querySelector("#NameOfStudent").value = parsedData.name;
+//     document.querySelector("#ID").value = parsedData.ID;
+//     document.querySelector("#Moblie").value = parsedData.mobile;
+//     document.querySelector("#Email").value = parsedData.email;
+//     document.querySelector("#Dateofbirth").value = parsedData.dateOfBirth;
+//     document.querySelector("#Level").value = parsedData.level;
+//     document.querySelector("#Department").value = parsedData.department;
+//     document.querySelector("#Active").checked = parsedData.active;
+//     document.querySelector("#Gender").value = parsedData.gender;
+//   }
+// }
+
+// function getLocalStorageData() {
+//   if (localStorage.getItem('studentData')) {
+//     const studentData = JSON.parse(localStorage.getItem('studentData'));
+//     document.getElementById('NameOfStudent').value = studentData.name;
+//     document.getElementById('ID').value = studentData.ID;
+//     document.getElementById('Moblie').value = studentData.mobile;
+//     document.getElementById('Email').value = studentData.email;
+//     document.getElementById('Dateofbirth').value = studentData.dateOfBirth;
+//     document.getElementById('Level').value = studentData.level;
+//     document.getElementById('Department').value = studentData.department;
+//     document.getElementById('Active').checked = studentData.active;
+//     document.getElementById('Gender').value = studentData.gender;
+//   }
+// }
+
+
+// window.onload = function() {
+//   getLocalStorageData();
+// }
