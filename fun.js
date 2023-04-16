@@ -1,3 +1,12 @@
+/*get data from local storage*/ 
+var data;
+if(localStorage.getItem("allStudents") != null){
+  data = JSON.parse(localStorage.getItem("allStudents"));
+} 
+else{
+  data = [];
+}
+
 function pop_up() {
   document.getElementById("login-modal").style.display = "block";
   document.getElementById("homeid").style.filter = "blur(5px)";
@@ -20,6 +29,7 @@ function goToPage() {
     }
   }
 }
+
 function ChangePage(select) {
   var selectedOption = select.options[select.selectedIndex];
   
@@ -91,6 +101,7 @@ function Search() {
     }
   }
 }
+
 function checklevel() {
   var select = document.getElementById("Level");
   var selectedOption = select.options[select.selectedIndex];
@@ -100,7 +111,7 @@ function checklevel() {
 }
 
 class Student {
-  constructor(name, ID, mobile, email, dateOfBirth, level, department, active, gender) {
+  constructor(name, ID, mobile, email, dateOfBirth, level, department, active, gender, gpa) {
     this.name = name;
     this.ID = ID;
     this.mobile = mobile;
@@ -110,10 +121,11 @@ class Student {
     this.department = department;
     this.active = active;
     this.gender = gender;
+    this.gpa = gpa;
   }
 }
 
-function setStudentInfo() {
+function addStudentInfo() {
   const name = document.querySelector("#NameOfStudent").value;
   const ID = document.querySelector("#ID").value;
   const mobile = document.querySelector("#Moblie").value;
@@ -123,22 +135,13 @@ function setStudentInfo() {
   const department = document.querySelector("#Department").value;
   const active = document.querySelector("#Active").checked;
   const gender = document.querySelector("#Gender").value;
-  const student = new Student(name, ID, mobile, email, dateOfBirth, level, department, active, gender);
-  localStorage.setItem(ID, JSON.stringify(student));
+  const gpa = document.querySelector("#gpa").value;
+  const student = new Student(name, ID, mobile, email, dateOfBirth, level, department, active, gender, gpa);
+  data.push(student);
+  set(data);
 }
-function SetDepartment(){
-  // console.log("sfsfsdfds");
-  // console.log(document.querySelector("#NameInList").innerHTML);
-  // console.log(document.querySelector("#DepInList").innerHTML);
-  // console.log(document.querySelector("#IdInList").innerHTML);
-  // console.log(document.querySelector("#LevelInList").innerHTML);
-  // const NameAssign=document.querySelector("#NameAssgin").value="tawfik";
-  // const DepartmentAssign=document.querySelector("#DepartmentAssgin").innerHTML="Cs";
-  // const IdAssgin=document.querySelector("#IdAssgin").innerHTML="556565";
-  // const LevelAssgin=document.querySelector("#LevelAssgin").innerHTML="2";
-  // let NameAssign=document.querySelector("#NameAssgin").innerHTML=document.querySelector("#NameInList").innerHTML;
-  // let DepartmentAssign=document.querySelector("#DepartmentAssgin").innerHTML=document.querySelector("#DepInList").innerHTML;
-  // let IdAssgin=document.querySelector("#IdAssgin").innerHTML=document.querySelector("#IdInList").innerHTML;
-  // let LevelAssgin=document.querySelector("#LevelAssgin").innerHTML=document.querySelector("#LevelInList").innerHTML;
-  
+
+/*st data in local storage*/
+function set(s){
+  localStorage.setItem("allStudents", JSON.stringify(s));
 }

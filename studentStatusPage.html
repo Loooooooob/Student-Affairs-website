@@ -2,86 +2,54 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Affairs website</title>
-    <script src="fun.js"></script>
-    <link rel="stylesheet" href="master.css">
-
+    <title>Change student status page</title>
+    <link rel="stylesheet" href="studentStatusPage.css">
+    <script src="studentStatusPage.js"></script>
 </head>
-<body>
-  <header class="header">
-    <ul>
-      <li><a href="Home.html">Home</a></li>
-      <li><select id="studentoptions" onchange="goToPage()">
-        <option value="">Students</option>
-        <option value="AddNewStudent.html">Add</option>
-        <option value="studentStatusPage.html">Status</option>
-        <option value="UpdateAndDelete.html">Update</option>
-        <option value="StudentDataBase.html">DataBase</option>
-        <option value="AssignDep.html">Department</option>
-      </select></li>
-      <li><a href="about.html">About Us</a></li>
-      <li class="buttoninout">
-        <button id="btnlogin" onclick="pop_up()" class="modal-btn">Login</button>
-        <button id="btnlogout" onclick="logout()"class="modal-btn">Logout</button>
-      </li>
-    </ul>  
-  </header>
-<hr>
-    <h1>Change student status</h1>
-    <table border="2" style="width:100%">
-  <tr>
-    <th>Student Name</th>
-    <th>Student ID</th>
-    <th>Current Status</th>
-  </tr>
-  <tr>
-    <td align = "center">NAME1</td>
-    <td align = "center">ID1</td>
-    <td align = "center"><label>
-        <select >
-                    <option>Active</option>
-                    <option>Inactive</option>
-            </select>
-    </label></td>
-  </tr>
-  <tr>
-    <td align = "center">NAME2</td>
-    <td align = "center">ID2</td>
-    <td align = "center"><label>
-        <select >
-                    <option>Active</option>
-                    <option>Inactive</option>
-            </select>
-    </label></td>
-  </tr>
-  <tr>
-    <td align = "center">NAME3</td>
-    <td align = "center">ID3</td>
-    <td align = "center"><label>
-        <select >
-                    <option>Active</option>
-                    <option>Inactive</option>
-            </select>
-    </label></td>
-  </tr>
-  <tr>
-    <td align = "center">NAME4</td>
-    <td align = "center">ID4</td>
-    <td align = "center"><label>
-        <select >
-                    <option>Active</option>
-                    <option>Inactive</option>
-            </select>
-    </label></td>
-  </tr>
 
-</table><br><br>
-<button>Save</button><br><br>
+<body>
+<div class="header">
+    <img decoding="async" src="images/logo.png" alt="" width="100px" height="60px">
+    <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="StudentDataBase.html">Student Data Base</a></li>
+        <li><a href="AddNewStudent.html">Create New Student</a></li>
+        <li><a href="UpdateAndDelete.html">Update Existing Student</a></li>
+        <li><a href="studentStatusPage.html">List Of Students</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="login.html">Login</a></li>
+    </ul>
+</div>
+<h1>Change student status</h1>
+<div id=search-bar>
+    <label for="userInput"></label>
+    <input type="text" id="userInput">
+
+    <label>
+        <input type="radio" id="idOption" name="option" value="ID" checked>
+        ID
+    </label>
+
+    <label>
+        <input type="radio" id="nameOption" name="option" value="Name">
+        Name
+    </label>
+    <button id="search-button">search</button>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>Student Name</th>
+        <th>Student ID</th>
+        <th>Current Status</th>
+    </tr>
+    </thead>
+</table>
+
+<button id="save-table" onclick="saveStatus()">Save status</button>
 <div class="footer">
-  <p>Thank you for visiting Student Affairs. We look forward to serving you</p>
+    <p>Thank you for visiting Student Affairs. We look forward to serving you.</p>
 </div>
 </body>
+
 </html>

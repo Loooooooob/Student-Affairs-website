@@ -9,36 +9,37 @@
 	<link rel="stylesheet" href="master.css">
 	<script src="fun.js"></script>
 </head>
+
 <body>
 	<header class="header">
 		<ul>
 			<li><a href="Home.html">Home</a></li>
 			<li><select id="studentoptions" onchange="goToPage()">
-				<option value="">Students</option>
-				<option value="AddNewStudent.html">Add</option>
-				<option value="studentStatusPage.html">Status</option>
-				<option value="UpdateAndDelete.html">Update</option>
-				<option value="StudentDataBase.html">DataBase</option>
-				<option value="AssignDep.html">Department</option>
-			</select></li>
+					<option value="">Students</option>
+					<option value="AddNewStudent.html">Add</option>
+					<option value="studentStatusPage.html">Status</option>
+					<option value="UpdateAndDelete.html">Update</option>
+					<option value="StudentDataBase.html">DataBase</option>
+					<option value="AssignDep.html">Department</option>
+				</select></li>
 			<li><a href="about.html">About Us</a></li>
 			<li class="buttoninout">
 				<button id="btnlogin" onclick="pop_up()" class="modal-btn">Login</button>
-				<button id="btnlogout" onclick="logout()"class="modal-btn">Logout</button>
-			  </li>
-        </ul>  
+				<button id="btnlogout" onclick="logout()" class="modal-btn">Logout</button>
+			</li>
+		</ul>
 	</header>
 	<hr>
 	<div class="page_title_add">
 		<h1 class="databaseh1">Student Table</h1>
 	</div>
-	
+
 	<div class="search">
 		<div class="searchimage1"></div>
-		<input id="searchbar" type="text" placeholder="Search by Name" onkeyup="Search()";>
+		<input id="searchbar" type="text" placeholder="Search by Name" onkeyup="Search()" ;>
 	</div>
-		
-		<table class="tabledb">
+
+	<table class="tabledb">
 		<tr class="trthdb">
 			<th class="thdb">Name</th>
 			<th class="thdb">ID</th>
@@ -53,16 +54,16 @@
 			<th class="thdb"></th>
 		</tr>
 			<tr class="trdb">
-				<td class="tddb" id="NameInList">Arrora</td>
-				<td class="tddb" id="IdInList">#876369</td>
+				<td class="tddb">Arrora</td>
+				<td class="tddb">#876369</td>
 				<td class="tddb">12 Dec, 2020</td>
 				<td class="tddb">3.7</td>
 				<td class="tddb">Arrora@gmail.com</td>
 				<td class="tddb">Male</td>
 				<td class="tddb">Active</td>
 				<td class="tddb">01155448757</td>
-				<td class="tddb" id="LevelInList">Two</td>
-				<td class="tddb" id="DepInList">CS</td>
+				<td class="tddb">Two</td>
+				<td class="tddb">CS</td>
 				<td class="tddb">
 					<select id="databaseoptions1" class="databaseoptions" onchange="ChangePage(databaseoptions1)">
 						<option value=""></option>
