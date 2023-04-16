@@ -126,3 +126,19 @@ function setStudentInfo() {
   const student = new Student(name, ID, mobile, email, dateOfBirth, level, department, active, gender);
   localStorage.setItem(ID, JSON.stringify(student));
 }
+function SetDepartment(){
+  // console.log("sfsfsdfds");
+  // console.log(document.querySelector("#NameInList").innerHTML);
+  // console.log(document.querySelector("#DepInList").innerHTML);
+  // console.log(document.querySelector("#IdInList").innerHTML);
+  // console.log(document.querySelector("#LevelInList").innerHTML);
+  // const NameAssign=document.querySelector("#NameAssgin").value="tawfik";
+  // const DepartmentAssign=document.querySelector("#DepartmentAssgin").innerHTML="Cs";
+  // const IdAssgin=document.querySelector("#IdAssgin").innerHTML="556565";
+  // const LevelAssgin=document.querySelector("#LevelAssgin").innerHTML="2";
+  // let NameAssign=document.querySelector("#NameAssgin").innerHTML=document.querySelector("#NameInList").innerHTML;
+  // let DepartmentAssign=document.querySelector("#DepartmentAssgin").innerHTML=document.querySelector("#DepInList").innerHTML;
+  // let IdAssgin=document.querySelector("#IdAssgin").innerHTML=document.querySelector("#IdInList").innerHTML;
+  // let LevelAssgin=document.querySelector("#LevelAssgin").innerHTML=document.querySelector("#LevelInList").innerHTML;
+  
+}
