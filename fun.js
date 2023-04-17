@@ -303,9 +303,11 @@ if (window.location.href.includes("StudentDataBase.html")) {
 
 var a = document.getElementById("myForm");
 if (a) {
-    a.addEventListener("submit", function (y) {
-        y.preventDefault();
-        updateStudentInfo();
+    a.addEventListener("submit", function (a) {
+        a.preventDefault();
+        if (checkIdUpdate()) {
+            updateStudentInfo();
+        }
     });
 }
 
@@ -431,9 +433,10 @@ function checkIdUpdate() {
     for (let i = 0; i < data.length; i++) {
         if (data[i].ID != getID && data[i].ID == id) {
             alert("The id already exsist");
-            return;
+            return false;
         }
     }
+    return true;
 }
 
 /*------------------------------------------------------------Department page functions--------------------------------------------------*/
