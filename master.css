@@ -540,8 +540,13 @@ input::placeholder {
   justify-content: center;
 }
 .assign_btn{
-  margin-right: 300px;
+  cursor: pointer;
+  margin-right: 100px;
   margin-top: 80px;
+  transition: 0.8s ease;
+}
+.assign_btn:hover{
+  transform: scale(1.1);
 }
 /* ------------------------------------------------ */
 
@@ -665,6 +670,7 @@ input::placeholder {
 
 #search-button {
   position: absolute;
+  border: 2px;
   margin-top: 4px;
   width: 66px;
   height: 33px;
@@ -673,8 +679,7 @@ input::placeholder {
   background-color: cornflowerblue;
   font-weight: bold;
   color: white;
-
-
+  cursor: pointer;
 }
 
 #search-button:hover {
@@ -719,12 +724,13 @@ td {
   top: 220px;
   width: 106px;
   height: 37px;
+  border: 2px;
   border-radius: 50px;
   background-color: cornflowerblue;
   font-weight: bold;
   right: 172px;
   color: white;
-
+  cursor: pointer;
 }
 
 #save-table:hover {
