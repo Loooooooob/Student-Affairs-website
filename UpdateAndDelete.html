@@ -19,8 +19,8 @@
                     <option value="AddNewStudent.html">Add</option>
                     <option value="studentStatusPage.html">Status</option>
                     <option value="UpdateAndDelete.html">Update</option>
-                    <option value="StudentDataBase.html">DataBase</option>
                     <option value="AssignDep.html">Department</option>
+                    <option value="StudentDataBase.html">ActiveStudents</option>
                 </select></li>
             <li><a href="about.html">About Us</a></li>
             <li class="buttoninout">
@@ -71,7 +71,7 @@
             </div>
             <div>
                 <label>Department
-                    <select id="Department" name="choice" onclick="checklevel()">
+                    <select id="Department" name="choice" onclick="checklevel()" disabled>
                         <option class="op" value="General" selected>General</option>
                         <option class="op" value="CS">CS</option>
                         <option class="op" value="IS">IS</option>
@@ -102,10 +102,10 @@
             </div>
         </form>
     </div>
-    
+
     <div class="Send">
-        <button onclick="Set_Info()">Update</button>
-        <button type="reset">Delete</button>
+        <button onclick="checkIdUpdate()">Update</button>
+        <button type="reset" onclick="deleteStudentInfo()">Delete</button>
     </div>
 
     <div class="footer" style="height: 60px;">

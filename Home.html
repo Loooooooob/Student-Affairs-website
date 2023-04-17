@@ -1,59 +1,63 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Affairs website</title>
-    <link rel="stylesheet" href="master.css">
-    <script src="fun.js"></script>
-  </head>
-  <body>
-    <div class="home" id="homeid">
-      <header class="header">
-        <ul>
-          <li><a href="Home.html">Home</a></li>
-          <li><select id="studentoptions" onchange="goToPage()">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Affairs website</title>
+  <link rel="stylesheet" href="master.css">
+  <script src="fun.js"></script>
+</head>
+
+<body>
+  <div class="home" id="homeid">
+    <header class="header">
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><select id="studentoptions" onchange="goToPage()">
             <option value="">Students</option>
             <option value="AddNewStudent.html">Add</option>
             <option value="studentStatusPage.html">Status</option>
             <option value="UpdateAndDelete.html">Update</option>
             <option value="StudentDataBase.html">DataBase</option>
             <option value="AssignDep.html">Department</option>
+            <option value="StudentDataBase.html">ActiveStudents</option>
           </select></li>
-          <li><a href="about.html">About Us</a></li>
-          <li class="buttoninout">
-            <button id="btnlogin" onclick="pop_up()" class="modal-btn">Login</button>
-            <button id="btnlogout" onclick="logout()"class="modal-btn">Logout</button>
-          </li>
-        </ul>  
-      </header>
-        </header>
-        <h1 class="home_title">
-          Welcome,<br>Student Affairs Community
-        </h1>
-        <div class="images">
-          <div class="image1"></div>
-          <div class="image2"></div>
+        <li><a href="about.html">About Us</a></li>
+        <li class="buttoninout">
+          <button id="btnlogin" onclick="pop_up()" class="modal-btn">Login</button>
+          <button id="btnlogout" onclick="logout()" class="modal-btn">Logout</button>
+        </li>
+      </ul>
+    </header>
+    </header>
+    <h1 class="home_title">
+      Welcome,<br>Student Affairs Community
+    </h1>
+    <div class="images">
+      <div class="image1"></div>
+      <div class="image2"></div>
+    </div>
+    <div class="footer">
+      Thank you for visiting Student Affairs. We look forward to serving you
+    </div>
+  </div>
+  <div id="login-modal" class="modal">
+    <div class="container">
+      <div class="loginimage"></div>
+      <div class="form">
+        <h1 id="welcomeagain">Welcome Again</h1>
+        <h3 id="logintext"> Login Your account</h3>
+        <div class="form-group">
+          <label id="username">Username</label>
+          <input type="text" class="EnterUsername" placeholder="Enter Username">
+          <label id="password">Password</label>
+          <input type="password" class="EnterPassword" placeholder="Enter Password">
+          <button onclick="checkData()" id="submit">Enroll</button>
         </div>
-        <div class="footer">
-          Thank you for visiting Student Affairs. We look forward to serving you
-        </div>
+        <img src="images/close.png" height="20px" id="close-btn" onclick="close_modal()">
       </div>
-      <div id="login-modal" class="modal">
-        <div class="container">
-          <div class="loginimage"></div>
-          <div class="form">
-              <h1 id="welcomeagain">Welcome Again</h1>
-              <h3 id="logintext"> Login Your account</h3>
-              <div class="form-group">
-                <label id="username">Username</label>
-                <input type="text" class="EnterUsername" placeholder="Enter Username">
-                <label id="password">Password</label>
-                <input type="password" class="EnterPassword" placeholder="Enter Password">
-                <button onclick="checkData()" id="submit">Enroll</button> 
-              </div>
-              <img src="images/close.png" height="20px" id="close-btn" onclick="close_modal()">
-          </div>
-  </body>
+</body>
+
 </html>
