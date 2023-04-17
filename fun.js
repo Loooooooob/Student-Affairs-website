@@ -1,13 +1,13 @@
 /*--------------------------------------------------------function used in several pages--------------------------------------------------*/
 
-/*get data from local storage*/
+//get data from local storage
 var data;
 if (localStorage.getItem("allStudents") != null) {
     data = JSON.parse(localStorage.getItem("allStudents"));
 } else {
     data = [];
 }
-
+// go to page from select options in header 
 function goToPage() {
     var select = document.getElementById("studentoptions");
     var selectedOption = select.options[select.selectedIndex];
@@ -20,7 +20,7 @@ function goToPage() {
         }
     }
 }
-
+// change page from select options in active student table
 function ChangePage(select) {
     var selectedOption = select.options[select.selectedIndex];
 
@@ -30,7 +30,7 @@ function ChangePage(select) {
         }
     }
 }
-
+//switch login and logout button
 function switchbtn() {
     if (localStorage.getItem("isloggedin") === "true") {
         document.getElementById("btnlogin").style.zIndex = "1";
@@ -40,7 +40,7 @@ function switchbtn() {
         document.getElementById("btnlogout").style.zIndex = "1";
     }
 }
-
+//logout function
 function logout() {
     localStorage.setItem("isloggedin", false);
     switchbtn();
@@ -51,11 +51,11 @@ function logout() {
         window.location.href = window.location.href;
     }
 }
-
+//go to home page
 function gotohomepage() {
     window.location.href = "home.html";
 }
-
+//check level and set department
 function checklevel() {
     var select = document.getElementById("Level");
     var selectedOption = select.options[select.selectedIndex];
@@ -63,7 +63,7 @@ function checklevel() {
         document.getElementById("Department").value = "General";
     }
 }
-
+//remove access from logged out user from pressing back button to go to the previous page
 window.onload = function () {
     switchbtn();
     if (localStorage.getItem("isloggedin") !== "true" && window.location.href.indexOf("/home.html") === -1) {
@@ -71,7 +71,7 @@ window.onload = function () {
     }
 
 };
-
+//class for student object
 class Student {
     constructor(name, ID, mobile, email, dateOfBirth, level, department, active, gender, gpa) {
         this.name = name;
@@ -86,23 +86,24 @@ class Student {
         this.gpa = gpa;
     }
 }
-
+//set data to local storage
 function set(s) {
     localStorage.setItem("allStudents", JSON.stringify(s));
 }
 
-/*----------------------------------------------------------Home Page--------------------------------------------------------------*/
+/*-------------------------------------------------------------------Home Page--------------------------------------------------------------*/
 
+//close the pop up screen for login page
 function close_modal() {
     document.getElementById("login-modal").style.display = "none";
     document.getElementById("homeid").style.filter = "blur(0px)";
 }
-
+//pop up login screen
 function pop_up() {
     document.getElementById("login-modal").style.display = "block";
     document.getElementById("homeid").style.filter = "blur(5px)";
 }
-
+//check valid users and password
 function checkData() {
     const userName = document.querySelector(".EnterUsername").value;
     const password = document.querySelector(".EnterPassword").value;
@@ -115,8 +116,9 @@ function checkData() {
     }
 }
 
-/*---------------------------------------------------Add new student Page----------------------------------------------------------*/
+/*---------------------------------------------------------------Add new student Page----------------------------------------------------------*/
 
+//function to check if the id already exsist
 function checkid() {
     const id = document.querySelector("#ID").value;
     for (let i = 0; i < data.length; i++) {
@@ -127,7 +129,7 @@ function checkid() {
     }
     addStudentInfo();
 }
-
+//function to set data to a new student to the database
 function addStudentInfo() {
     const name = document.querySelector("#NameOfStudent").value;
     const ID = document.querySelector("#ID").value;
@@ -145,7 +147,6 @@ function addStudentInfo() {
             break;
         }
     }
-
     var gender = document.getElementsByName('Gender');
     var genderValue;
     for (var i = 0, length = gender.length; i < length; i++) {
@@ -155,10 +156,8 @@ function addStudentInfo() {
         }
     }
     const student = new Student(name, ID, mobile, email, dateOfBirth, level, department, avtiveValue, genderValue, gpa);
-
     data.push(student);
     set(data);
-
     if (student.active == true) {
         window.location.href = "StudentDataBase.html";
     } else {
@@ -166,8 +165,9 @@ function addStudentInfo() {
     }
 }
 
-/*-------------------------------------------All Active Student Page-----------------------------------------------------------*/
+/*-------------------------------------------------------------All Active Student Page-----------------------------------------------------------*/
 
+//search for student in active student page
 function Search() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("searchbar");
@@ -186,7 +186,7 @@ function Search() {
         }
     }
 }
-
+//function to view the table of all active students
 function viewTable() {
     var body = document.getElementById("tcontent");
     body.innerHTML = ``;
@@ -218,14 +218,15 @@ function viewTable() {
     }
     body.innerHTML = table;
 }
-
+//if condition to add the data in active student page
 if (window.location.href.includes("StudentDataBase.html")) {
     viewTable();
 }
 
-/*-------------------------------------------------------------Update page functions-------------------------------------------------*/
+/*---------------------------------------------------------------Update page functions-------------------------------------------------*/
 
-function getDataFromDB() { /*function to get data of specific student from database*/
+//function to get data of specific student from database
+function getDataFromDB() { 
     var currentLink = window.location.href;
     var url = new URL(currentLink);
     var getParameter = url.searchParams;
@@ -260,13 +261,12 @@ function getDataFromDB() { /*function to get data of specific student from datab
     document.getElementById("Moblie").value = index.mobile;
     document.getElementById("ID").value = index.ID;
 }
-
-/*if condition to add the data in update page*/
+//if condition to add the data in update page
 if (window.location.href.includes('UpdateAndDelete.html')) {
     getDataFromDB();
 }
-
-function updateStudentInfo() { /*function to update data of specific student in database*/
+//function to update data of specific student in database
+function updateStudentInfo() {
     var currentLink = window.location.href;
     var url = new URL(currentLink);
     var getParameter = url.searchParams;
@@ -289,7 +289,6 @@ function updateStudentInfo() { /*function to update data of specific student in 
             break;
         }
     }
-
     var gender = document.getElementsByName('Gender');
     var genderValue;
     for (var i = 0, length = gender.length; i < length; i++) {
@@ -298,7 +297,6 @@ function updateStudentInfo() { /*function to update data of specific student in 
             break;
         }
     }
-
     data[index].name = name;
     data[index].ID = ID;
     data[index].mobile = mobile;
@@ -309,17 +307,15 @@ function updateStudentInfo() { /*function to update data of specific student in 
     data[index].active = avtiveValue;
     data[index].gender = genderValue;
     data[index].gpa = gpa;
-
     set(data);
-
     if (data[index].active == true) {
         window.location.href = "StudentDataBase.html";
     } else {
         window.location.href = "studentStatusPage.html";
     }
 }
-
-function deleteStudentInfo() { /*function to delete data of specific student in database*/
+//function to delete data of specific student in database
+function deleteStudentInfo() { 
     var id;
     var link = window.location.href;
     var url = new URL(link);
@@ -330,7 +326,7 @@ function deleteStudentInfo() { /*function to delete data of specific student in 
     set(data);
     window.location.href = "StudentDataBase.html";
 }
-
+// function to check if the id is already exsist or not
 function checkIdUpdate() {
     var currentLink = window.location.href;
     var url = new URL(currentLink);
@@ -347,9 +343,10 @@ function checkIdUpdate() {
     updateStudentInfo();
 }
 
-/*--------------------------------------------------------Department page functions--------------------------------------------------*/
+/*------------------------------------------------------------Department page functions--------------------------------------------------*/
 
-function getDataFromDB_dep() { /*function to get data of specific student from database*/
+//function to get data of specific student from database
+function getDataFromDB_dep() { 
     var currentLink = window.location.href;
     var url = new URL(currentLink);
     var getParameter = url.searchParams;
@@ -360,19 +357,17 @@ function getDataFromDB_dep() { /*function to get data of specific student from d
     document.getElementById("Level").value = index.level;
     document.getElementById("ID").value = index.ID;
 }
-
-/*if condition to add the data in Department page*/
+//if condition to add the data in Department page
 if (window.location.href.includes('AssignDep.html')) {
     getDataFromDB_dep();
 }
-
-function depStudentInfo() { /*function to delete specific student in database*/
+//function to set data of specific student from database
+function depStudentInfo() {
     var currentLink = window.location.href;
     var url = new URL(currentLink);
     var getParameter = url.searchParams;
     var getID = getParameter.get("id");
     var index = data.findIndex(allStudents => allStudents.ID == getID);
-
     const nameField = document.querySelector("#NameOfStudent");
     const idField = document.querySelector("#ID");
     const levelField = document.querySelector("#Level");
@@ -382,14 +377,9 @@ function depStudentInfo() { /*function to delete specific student in database*/
     idField.disabled = true;
     levelField.readOnly = true;
     levelField.disabled = true;
-
-
-
     const department = document.querySelector("#Department").value;
-
     data[index].department = department;
     set(data);
-
     if (data[index].active == true) {
         window.location.href = "StudentDataBase.html";
     } else {
@@ -521,8 +511,6 @@ function searchByID(ID) {
 
     }
 }
-
-
 document.addEventListener('click', () => {
     const searchButton = document.getElementById("search-button");
     const idOption = document.getElementById("idOption");
@@ -537,7 +525,6 @@ document.addEventListener('click', () => {
         }
     });
 });
-
 function saveStatus() {
     let flag = false;
     console.log(GlobalIDs.length);
