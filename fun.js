@@ -388,10 +388,14 @@ function depStudentInfo() {
 }
 
 /*-------------------------------------------------------------Status page functions--------------------------------------------------*/
+
+// GlobalIDs is an array used to save the current table IDs; its purpose is explained in the saveStatus function.
 let GlobalIDs = [];
 
+// viewAll function runs when you open the student status's page , it projects all active/inactive students
 function viewAll() {
     const table = document.getElementsByTagName("table")[0];
+    // make the table header ( name, id and status )
     table.innerHTML = ' <thead>\n' +
         '            <tr>\n' +
         '                <th>Student Name</th>\n' +
@@ -402,15 +406,22 @@ function viewAll() {
 
 
     for (let i = 0; i < data.length; i++) {
+        // insert each row and cell in "data" which is in local storage .
 
         const newRow = table.insertRow();
         const nameCell = newRow.insertCell(0);
         const idCell = newRow.insertCell(1);
         const statusCell = newRow.insertCell(2);
 
+        GlobalIDs.push(data[i].ID);
+
+        // Assign each cell
         nameCell.innerHTML = data[i].name;
         idCell.innerHTML = data[i].ID;
-        GlobalIDs.push(data[i].ID);
+
+        // Handle which radio button is checked by knowing the student's activity status from "data".
+        // Assign a unique id to each radio button so that i can easily access it.
+
         statusCell.innerHTML = `
       <label>
           <input type="radio" name=${"activity" + i} value="activity" id=${"active" + data[i].ID}
@@ -422,6 +433,7 @@ function viewAll() {
                                                             ${!data[i].active ? 'checked' : ''}  style="display: inline-flex"> Inactive
         </label>`;
 
+        // Making even rows has different style (different class in style sheet) .
         if (table.rows.length % 2 === 1) {
             newRow.classList.add("even-row");
         }
@@ -430,8 +442,9 @@ function viewAll() {
 
 }
 function searchByName(name) {
-
+    // make GlobalIDs array empty to assign it with different IDs.
     GlobalIDs.length = 0;
+
     const table = document.getElementsByTagName("table")[0];
     table.innerHTML = ' <thead>\n' +
         '            <tr>\n' +
@@ -443,19 +456,25 @@ function searchByName(name) {
 
 
     for (let i = 0; i < data.length; i++) {
+        // add space to name to handle (one word name) case in substring function >> e.g. (mohamed, kareem, alaa)
         data[i].name += ' ';
         let tempName = data[i].name.toLowerCase().substring(0, data[i].name.indexOf(' '));
-        if (name === tempName ) {
 
-            // console.log(data);
+        // Revert to the original name.
+        data[i].name = data[i].name.slice(0,-1);
+
+        // If user input was the first name or full name, then pass .
+        if (name === tempName || name === data[i].name.toLowerCase()) {
+
             const newRow = table.insertRow();
             const nameCell = newRow.insertCell(0);
             const idCell = newRow.insertCell(1);
             const statusCell = newRow.insertCell(2);
 
+            GlobalIDs.push(data[i].ID);
+
             nameCell.innerHTML = data[i].name;
             idCell.innerHTML = data[i].ID;
-            GlobalIDs.push(data[i].ID);
             statusCell.innerHTML = `
         <label>
           <input type="radio" name=${"activity" + i} value="activity" id=${"active" + data[i].ID}
@@ -512,12 +531,17 @@ function searchByID(ID) {
 
     }
 }
+
+// Handle the event when the user clicks the search button.
 document.addEventListener('click', () => {
     const searchButton = document.getElementById("search-button");
     const idOption = document.getElementById("idOption");
 
     searchButton.addEventListener("click", () => {
+        // Get user input
         let userInputValue = document.getElementById('userInput').value;
+
+        // If the user clicks search with the ID option selected, then search by ID; otherwise, search by name.
         if (idOption.checked) {
             searchByID(userInputValue);
         } else {
@@ -526,31 +550,40 @@ document.addEventListener('click', () => {
         }
     });
 });
-function saveStatus() {
-    let flag = false;
-    console.log(GlobalIDs.length);
+// Save status function runs when user click "save status" button , it
+// saves the changes made by the user in the students' activity status.
 
+function saveStatus() {
+   // Flag is a boolean variable that determines whether the user changed at least one status.
+    let flag = false;
     for (let i = 0; i < GlobalIDs.length; i++) {
+        // We can easily access the current table that the user wants to save its status by assisting with GlobalIDs data.
 
         let string = "active" + GlobalIDs[i] ;
         let element = document.getElementById(string);
         let status = element.checked;
 
+        // Loop through the data to find the similar ID and assign it the new activity status.
         for (let j = 0; j < data.length; j++) {
             if (data[j].ID === GlobalIDs[i]) {
                 flag = true;
                 data[j].active = status;
-                console.log(data[j].active);
+                // console.log(data[j].active);
                 break;
             }
         }
     }
+    // If user changes at least one status project message "Status saved".
     if (flag) {
         alert("Status saved")
     }
+
+   // Put the new data into local storage.
    localStorage.setItem("allStudents", JSON.stringify(data));
 }
+// If user opens the Student status page , run "viewAll" function.
 if(window.location.href.indexOf("studentStatusPage.html") > -1) {
+
     viewAll();
   // console.log("This function will execute when the specific page loads");
 }
