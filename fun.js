@@ -1,11 +1,9 @@
 /*get data from local storage*/ 
-
 var data;
-if(localStorage.getItem("allStudents") != null){
-  data = JSON.parse(localStorage.getItem("allStudents"));
-} 
-else{
-  data = [];
+if (localStorage.getItem("allStudents") != null) {
+    data = JSON.parse(localStorage.getItem("allStudents"));
+} else {
+    data = [];
 }
 
 function checkid(){
@@ -20,121 +18,122 @@ function checkid(){
 }
 
 function pop_up() {
-  document.getElementById("login-modal").style.display = "block";
-  document.getElementById("homeid").style.filter = "blur(5px)";
+    document.getElementById("login-modal").style.display = "block";
+    document.getElementById("homeid").style.filter = "blur(5px)";
 }
 
 function close_modal() {
-  document.getElementById("login-modal").style.display = "none";
-  document.getElementById("homeid").style.filter = "blur(0px)";
+    document.getElementById("login-modal").style.display = "none";
+    document.getElementById("homeid").style.filter = "blur(0px)";
 }
 
 function goToPage() {
-  var select = document.getElementById("studentoptions");
-  var selectedOption = select.options[select.selectedIndex];
-  if (selectedOption.value != "") {
-    if (localStorage.getItem("isloggedin") === "true")  {
-      window.location.href = selectedOption.value;
-    } else {
-      alert("Please log in first");
-      pop_up();
+    var select = document.getElementById("studentoptions");
+    var selectedOption = select.options[select.selectedIndex];
+    if (selectedOption.value != "") {
+        if (localStorage.getItem("isloggedin") === "true") {
+            window.location.href = selectedOption.value;
+        } else {
+            alert("Please log in first");
+            pop_up();
+        }
     }
-  }
 }
 
 function ChangePage(select) {
-  var selectedOption = select.options[select.selectedIndex];
-  
-  if (selectedOption.value != "") {
-    if (localStorage.getItem("isloggedin") === "true")  {
-      window.location.href = selectedOption.value;
-    } 
-  }
+    var selectedOption = select.options[select.selectedIndex];
+
+    if (selectedOption.value != "") {
+        if (localStorage.getItem("isloggedin") === "true") {
+            window.location.href = selectedOption.value;
+        }
+    }
 }
 
 function checkData() {
-  const userName = document.querySelector(".EnterUsername").value;
-  const password = document.querySelector(".EnterPassword").value;
-  if ((userName === "Tawfik" && password === "12345" )||(userName === "Habiba" && password === "123456" ) ||(userName === "Amira" && password === "1234567" )||(userName === "Omran" && password === "12345678" )||(userName === "Alaa" && password === "123456789" )||(userName === "Karem" && password === "1234567890" )) {
-    close_modal();
-    localStorage.setItem("isloggedin", true);
-    switchbtn();
-  }
-  else {
-    alert("Username or password incorrect");
-  }
-}
-
-function switchbtn(){
-  if (localStorage.getItem("isloggedin") === "true") {
-    document.getElementById("btnlogin").style.zIndex = "1";
-    document.getElementById("btnlogout").style.zIndex = "2";
-  } 
-  else {
-    document.getElementById("btnlogin").style.zIndex = "2";
-    document.getElementById("btnlogout").style.zIndex = "1";
-  }
-}
-
-function logout(){
-  localStorage.setItem("isloggedin", false);
-  switchbtn();
-  if (localStorage.getItem("isloggedin") === "false") {
-    window.location.href = "home.html"; 
-    switchbtn();
-  } else {
-    window.location.href = window.location.href;
-  }
-}
-
-window.onload = function() {
-  switchbtn();
-  if (localStorage.getItem("isloggedin") !== "true" && window.location.href.indexOf("/home.html") === -1) {
-    window.location.href = "home.html";
-  }
-  
-};
-
-function Search() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("searchbar");
-  filter = input.value.toUpperCase();
-  table = document.getElementsByClassName("tabledb")[0];
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
+    const userName = document.querySelector(".EnterUsername").value;
+    const password = document.querySelector(".EnterPassword").value;
+    if ((userName === "Tawfik" && password === "12345") || (userName === "Habiba" && password === "123456") || (userName === "Amira" && password === "1234567") || (userName === "Omran" && password === "12345678") || (userName === "Alaa" && password === "123456789") || (userName === "Karem" && password === "1234567890")) {
+        close_modal();
+        localStorage.setItem("isloggedin", true);
+        switchbtn();
+    } else {
+        alert("Username or password incorrect");
     }
-  }
+}
+
+function switchbtn() {
+    if (localStorage.getItem("isloggedin") === "true") {
+        document.getElementById("btnlogin").style.zIndex = "1";
+        document.getElementById("btnlogout").style.zIndex = "2";
+    } else {
+        document.getElementById("btnlogin").style.zIndex = "2";
+        document.getElementById("btnlogout").style.zIndex = "1";
+    }
+}
+
+function logout() {
+    localStorage.setItem("isloggedin", false);
+    switchbtn();
+    if (localStorage.getItem("isloggedin") === "false") {
+        window.location.href = "home.html";
+        switchbtn();
+    } else {
+        window.location.href = window.location.href;
+    }
+}
+
+window.onload = function () {
+    switchbtn();
+    if (localStorage.getItem("isloggedin") !== "true" && window.location.href.indexOf("/home.html") === -1) {
+        window.location.href = "home.html";
+    }
+
+};
+function gotohomepage(){
+  window.location.href = "home.html";
+ }
+ 
+function Search() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchbar");
+    filter = input.value.toUpperCase();
+    table = document.getElementsByClassName("tabledb")[0];
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
 }
 
 function checklevel() {
-  var select = document.getElementById("Level");
-  var selectedOption = select.options[select.selectedIndex];
-  if (selectedOption.value == "1" || selectedOption.value == "2") {
-    document.getElementById("Department").value = "General";
-  } 
+    var select = document.getElementById("Level");
+    var selectedOption = select.options[select.selectedIndex];
+    if (selectedOption.value == "1" || selectedOption.value == "2") {
+        document.getElementById("Department").value = "General";
+    }
 }
 
 class Student {
-  constructor(name, ID, mobile, email, dateOfBirth, level, department, active, gender, gpa) {
-    this.name = name;
-    this.ID = ID;
-    this.mobile = mobile;
-    this.email = email;
-    this.dateOfBirth = dateOfBirth;
-    this.level = level;
-    this.department = department;
-    this.active = active;
-    this.gender = gender;
-    this.gpa = gpa;
-  }
+    constructor(name, ID, mobile, email, dateOfBirth, level, department, active, gender, gpa) {
+        this.name = name;
+        this.ID = ID;
+        this.mobile = mobile;
+        this.email = email;
+        this.dateOfBirth = dateOfBirth;
+        this.level = level;
+        this.department = department;
+        this.active = active;
+        this.gender = gender;
+        this.gpa = gpa;
+    }
 }
 
 function addStudentInfo() {
@@ -147,47 +146,46 @@ function addStudentInfo() {
   const department = document.querySelector("#Department").value;
   var active = document.getElementsByName('ActivationStutes');
   const gpa = document.querySelector("#gpa").value;
-  var avtiveValue;
+    var avtiveValue;
     for (var i = 0, length = active.length; i < length; i++) {
         if (active[i].checked) {
-          avtiveValue = active[i].value=="Active"?true:false;
+            avtiveValue = active[i].value == "Active" ? true : false;
             break;
         }
     }
 
-  var gender = document.getElementsByName('Gender');
+    var gender = document.getElementsByName('Gender');
     var genderValue;
     for (var i = 0, length = gender.length; i < length; i++) {
         if (gender[i].checked) {
-          genderValue = gender[i].value;
+            genderValue = gender[i].value;
             break;
         }
     }
-  const student = new Student(name, ID, mobile, email, dateOfBirth, level, department, avtiveValue, genderValue, gpa);
+    const student = new Student(name, ID, mobile, email, dateOfBirth, level, department, avtiveValue, genderValue, gpa);
 
-  data.push(student);
-  set(data);
+    data.push(student);
+    set(data);
 
-  if(student.active == true) {
-    window.location.href = "StudentDataBase.html";
-  } 
-  else {
-    window.location.href = "studentStatusPage.html";
-  }
+    if (student.active == true) {
+        window.location.href = "StudentDataBase.html";
+    } else {
+        window.location.href = "studentStatusPage.html";
+    }
 }
 
 /*st data in local storage*/
-function set(s){
-  localStorage.setItem("allStudents", JSON.stringify(s));
+function set(s) {
+    localStorage.setItem("allStudents", JSON.stringify(s));
 }
 
-function viewTable(){
-  var body = document.getElementById("tcontent");
-  body.innerHTML = ``;
-  var table = '';
-  for(var i = 0; i < data.length; i++){
-    if(data[i].active == true) {
-      table += `
+function viewTable() {
+    var body = document.getElementById("tcontent");
+    body.innerHTML = ``;
+    var table = '';
+    for (var i = 0; i < data.length; i++) {
+        if (data[i].active == true) {
+            table += `
     <tr class="trdb">
     <td class="tddb">${data[i].name}</td>
     <td class="tddb">${data[i].ID}</td>
@@ -195,7 +193,7 @@ function viewTable(){
     <td class="tddb">${data[i].gpa}</td>
     <td class="tddb">${data[i].email}</td>
     <td class="tddb">${data[i].gender}</td>
-    <td class="tddb">${data[i].active?"Active":"Inactive"}</td>
+    <td class="tddb">${data[i].active ? "Active" : "Inactive"}</td>
     <td class="tddb">${data[i].mobile}</td>
     <td class="tddb">${data[i].level}</td>
     <td class="tddb">${data[i].department}</td>
@@ -208,31 +206,22 @@ function viewTable(){
     </td>
   </tr>
     `;
+        }
     }
-  }
-  body.innerHTML = table;
+    body.innerHTML = table;
 }
 
-if(window.location.href.includes("StudentDataBase.html")) {
-  viewTable();
+if (window.location.href.includes("StudentDataBase.html")) {
+    viewTable();
 }
 
-
-// function changedep(){
-//     const nameInList = document.querySelector("#nameInList").innerHTML;
-//     const nameAssign = document.querySelector("#NameAssign");
-//     nameAssign.innerHTML = nameInList;
-//     console.log(nameInList);
-// }
 
 
 /*===============================================================================*/
-let GlobalID = [];
+let GlobalIDs = [];
 
-
-function searchByName(name) {
-
-    GlobalID.length = 0;
+function viewAll() {
+    GlobalIDs.length = 0;
     const table = document.getElementsByTagName("table")[0];
     table.innerHTML = ' <thead>\n' +
         '            <tr>\n' +
@@ -243,29 +232,69 @@ function searchByName(name) {
         '        </thead>';
 
 
-    for (let i = 0; i < localStorage.length; i++) {
-        let key = localStorage.key(i);
-        let student = JSON.parse(localStorage.getItem(key));
+    for (let i = 0; i < data.length; i++) {
 
-        if (name && name === student[0]?.toLowerCase()) {
+        const newRow = table.insertRow();
+        const nameCell = newRow.insertCell(0);
+        const idCell = newRow.insertCell(1);
+        const statusCell = newRow.insertCell(2);
 
+        nameCell.innerHTML = data[i].name;
+        idCell.innerHTML = data[i].ID;
+        GlobalIDs.push(data[i].ID);
+        statusCell.innerHTML = `
+        <label>
+          <input type="radio" name=${"activity" + i} value="activity" id=${"active" + data[i].ID}
+                                                            ${data[i].active ? 'checked' : ''} style="display: inline-flex"> Active
+        </label>
+        
+        <label>
+          <input type="radio" name=${"activity" + i} value="inactivity" id=${"inactive" + data[i].ID} 
+                                                            ${!data[i].active ? 'checked' : ''}  style="display: inline-flex"> Inactive
+        </label>`;
+
+        if (table.rows.length % 2 === 1) {
+            newRow.classList.add("even-row");
+        }
+
+    }
+
+}
+function searchByName(name) {
+
+    GlobalIDs.length = 0;
+    const table = document.getElementsByTagName("table")[0];
+    table.innerHTML = ' <thead>\n' +
+        '            <tr>\n' +
+        '                <th>Student Name</th>\n' +
+        '                <th>Student ID</th>\n' +
+        '                <th>Current Status</th>\n' +
+        '            </tr>\n' +
+        '        </thead>';
+
+
+    for (let i = 0; i < data.length; i++) {
+
+        if (name === data[i].name.toLowerCase()) {
+
+            // console.log(data);
             const newRow = table.insertRow();
             const nameCell = newRow.insertCell(0);
             const idCell = newRow.insertCell(1);
             const statusCell = newRow.insertCell(2);
 
-            nameCell.innerHTML = student[0];
-            idCell.innerHTML = key;
-            GlobalID.push(key);
+            nameCell.innerHTML = data[i].name;
+            idCell.innerHTML = data[i].ID;
+            GlobalIDs.push(data[i].ID);
             statusCell.innerHTML = `
         <label>
-          <input type="radio" name=${"activity" + i} value="activity" id=${"active" + key}
-                                                            ${student[1] ? 'checked' : ''} style="display: inline-flex"> Active
+          <input type="radio" name=${"activity" + i} value="activity" id=${"active" + data[i].ID}
+                                                            ${data[i].active ? 'checked' : ''} style="display: inline-flex"> Active
         </label>
         
         <label>
-          <input type="radio" name=${"activity" + i} value="inactivity" id=${"inactive" + key} 
-                                                            ${!student[1] ? 'checked' : ''}  style="display: inline-flex"> Inactive
+          <input type="radio" name=${"activity" + i} value="inactivity" id=${"inactive" + data[i].ID} 
+                                                            ${!data[i].active ? 'checked' : ''}  style="display: inline-flex"> Inactive
         </label>`;
 
             if (table.rows.length % 2 === 1) {
@@ -273,11 +302,10 @@ function searchByName(name) {
             }
         }
     }
-
 }
 
 function searchByID(ID) {
-    GlobalID.length = 0;
+    GlobalIDs.length = 0;
     const table = document.getElementsByTagName("table")[0];
     table.innerHTML = ' <thead>' +
         '            <tr>' +
@@ -287,32 +315,33 @@ function searchByID(ID) {
         '            </tr>\n' +
         '        </thead>';
 
-    let student = JSON.parse(localStorage.getItem(ID));
 
-    const newRow = table.insertRow();
-    const nameCell = newRow.insertCell(0);
-    const idCell = newRow.insertCell(1);
-    const statusCell = newRow.insertCell(2);
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].ID === ID) {
+            const newRow = table.insertRow();
+            const nameCell = newRow.insertCell(0);
+            const idCell = newRow.insertCell(1);
+            const statusCell = newRow.insertCell(2);
 
-    nameCell.innerHTML = student[0];
-    idCell.innerHTML = ID;
-    GlobalID.push(ID);
-    statusCell.innerHTML = `
-        <label>
-          <input type="radio" name="activity" value="activity" id="active1" 
-                                ${student[1] ? 'checked' : ''}  style="display: inline-flex" > Active
-        </label>
-        
-        <label>
-          <input type="radio" name="activity" value="inactivity" id="inactive1" 
-                              ${!student[1] ? 'checked' : ''}  style="display: inline-flex" > Inactive
-        </label>
+            nameCell.innerHTML = data[i].name;
+            idCell.innerHTML = data[i].ID;
+            GlobalIDs.push(data[i].ID);
+            statusCell.innerHTML = `
+            <label>
+              <input type="radio" name="activity" value="activity" id="active1" 
+                                    ${data[i].active ? 'checked' : ''}  style="display: inline-flex" > Active
+            </label>
+            
+            <label>
+              <input type="radio" name="activity" value="inactivity" id="inactive1" 
+                                  ${!data[i].active ? 'checked' : ''}  style="display: inline-flex" > Inactive
+            </label>`;
+            if (table.rows.length % 2 === 1) {
+                newRow.classList.add("even-row");
+            }
+        }
 
-    `;
-    if (table.rows.length % 2 === 1) {
-        newRow.classList.add("even-row");
     }
-
 }
 
 
@@ -323,9 +352,7 @@ document.addEventListener('click', () => {
     searchButton.addEventListener("click", () => {
         let userInputValue = document.getElementById('userInput').value;
         if (idOption.checked) {
-            if (localStorage.getItem(userInputValue)) {
-                searchByID(userInputValue);
-            }
+            searchByID(userInputValue);
         } else {
             searchByName(userInputValue.toLowerCase());
 
@@ -335,22 +362,22 @@ document.addEventListener('click', () => {
 
 function saveStatus() {
     let flag = false;
-    for (let i = 0; i < GlobalID.length; i++) {
+    for (let i = 0; i < GlobalIDs.length; i++) {
 
-        let string = "active" + GlobalID[i];
+        let string = "active" + GlobalIDs[i];
         let element = document.getElementById(string);
         let status = element.checked;
-        let student = JSON.parse(localStorage.getItem(GlobalID[i]));
 
-        if ( status !== student[1])
-            flag = true;
-
-        student[1] = status;
-
-        console.log(student);
-        localStorage.setItem(GlobalID[i], JSON.stringify(student));
+        for (let j = 0; j < data.length; j++) {
+            if (data[j].ID === GlobalIDs[i]) {
+                flag = true;
+                data[j].active = status;
+                console.log(data[j].active);
+            }
+        }
     }
-    if ( flag ) {
+    if (flag) {
         alert("Status saved")
     }
-} 
+}
+viewAll();
