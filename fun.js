@@ -1,10 +1,22 @@
 /*get data from local storage*/ 
+
 var data;
 if(localStorage.getItem("allStudents") != null){
   data = JSON.parse(localStorage.getItem("allStudents"));
 } 
 else{
   data = [];
+}
+
+function checkid(){
+  const id=document.querySelector("#ID").value;
+  for (let i = 0; i < data.length; i++) {
+    if(data[i].ID==id){
+      alert("The id already exsist");
+      return;
+    }
+  }
+  addStudentInfo();
 }
 
 function pop_up() {
@@ -135,7 +147,7 @@ function addStudentInfo() {
   const department = document.querySelector("#Department").value;
   var active = document.getElementsByName('ActivationStutes');
   const gpa = document.querySelector("#gpa").value;
-    var avtiveValue;
+  var avtiveValue;
     for (var i = 0, length = active.length; i < length; i++) {
         if (active[i].checked) {
           avtiveValue = active[i].value=="Active"?true:false;
@@ -205,6 +217,13 @@ if(window.location.href.includes("StudentDataBase.html")) {
   viewTable();
 }
 
+
+// function changedep(){
+//     const nameInList = document.querySelector("#nameInList").innerHTML;
+//     const nameAssign = document.querySelector("#NameAssign");
+//     nameAssign.innerHTML = nameInList;
+//     console.log(nameInList);
+// }
 
 
 /*===============================================================================*/
