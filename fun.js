@@ -1,4 +1,4 @@
-/*get data from local storage*/
+/*get data from local storage*/ 
 var data;
 if (localStorage.getItem("allStudents") != null) {
     data = JSON.parse(localStorage.getItem("allStudents"));
@@ -6,15 +6,15 @@ if (localStorage.getItem("allStudents") != null) {
     data = [];
 }
 
-function checkid() {
-    const id = document.querySelector("#ID").value;
-    for (let i = 0; i < data.length; i++) {
-        if (data[i].ID == id) {
-            alert("The id already exsist");
-            return;
-        }
+function checkid(){
+  const id=document.querySelector("#ID").value;
+  for (let i = 0; i < data.length; i++) {
+    if(data[i].ID==id){
+      alert("The id already exsist");
+      return;
     }
-    addStudentInfo();
+  }
+  addStudentInfo();
 }
 
 function pop_up() {
@@ -90,9 +90,9 @@ window.onload = function () {
     }
 
 };
-function gotohomepage() {
-    window.location.href = "home.html";
-}
+function gotohomepage(){
+  window.location.href = "home.html";
+ }
 
 function Search() {
     var input, filter, table, tr, td, i, txtValue;
@@ -137,15 +137,15 @@ class Student {
 }
 
 function addStudentInfo() {
-    const name = document.querySelector("#NameOfStudent").value;
-    const ID = document.querySelector("#ID").value;
-    const mobile = document.querySelector("#Moblie").value;
-    const email = document.querySelector("#Email").value;
-    const dateOfBirth = document.querySelector("#Dateofbirth").value;
-    const level = document.querySelector("#Level").value;
-    const department = document.querySelector("#Department").value;
-    var active = document.getElementsByName('ActivationStutes');
-    const gpa = document.querySelector("#gpa").value;
+  const name = document.querySelector("#NameOfStudent").value;
+  const ID = document.querySelector("#ID").value;
+  const mobile = document.querySelector("#Moblie").value;
+  const email = document.querySelector("#Email").value;
+  const dateOfBirth = document.querySelector("#Dateofbirth").value;
+  const level = document.querySelector("#Level").value;
+  const department = document.querySelector("#Department").value;
+  var active = document.getElementsByName('ActivationStutes');
+  const gpa = document.querySelector("#gpa").value;
     var avtiveValue;
     for (var i = 0, length = active.length; i < length; i++) {
         if (active[i].checked) {
@@ -198,9 +198,9 @@ function viewTable() {
     <td class="tddb">${data[i].level}</td>
     <td class="tddb">${data[i].department}</td>
     <td class="tddb">
-      <select id="databaseoptions1" class="databaseoptions" onchange="ChangePage(this)">
+      <select id="databaseoptions1" class="databaseoptions" onchange="ChangePage(databaseoptions1)">
         <option value=""></option>
-        <option value="UpdateAndDelete.html?id=${data[i].ID}">Update</option>
+        <option value="UpdateAndDelete.html">Update</option>
         <option value="AssignDep.html">Department</option>
       </select>
     </td>
@@ -213,43 +213,6 @@ function viewTable() {
 
 if (window.location.href.includes("StudentDataBase.html")) {
     viewTable();
-}
-
-function getDataFromDB() {
-    var currentLink = window.location.href;
-    var url = new URL(currentLink);
-    var getParameter = url.searchParams;
-    var getID = getParameter.get("id");
-    var index = data.find(allStudents => allStudents.ID == getID);
-    document.getElementById("NameOfStudent").value = index.name;
-
-    var active = document.getElementsByName('ActivationStutes') ;
-    for (var i = 0; i < active.length; i++) {
-        if (active[i].value == index.active) {
-            active[i].checked = true;
-            break;
-        }
-    }
-
-    var gender = document.getElementsByName('Gender') ;
-    for (var i = 0; i < gender.length; i++) {
-        if (gender[i].value == index.gender) {
-            gender[i].checked = true;
-            break;
-        }
-    }
-
-    document.getElementById("gpa").value = index.gpa;
-    document.getElementById("Department").value = index.department;
-    document.getElementById("Level").value = index.level;
-    document.getElementById("Dateofbirth").value = index.dateOfBirth;
-    document.getElementById("Email").value = index.email;
-    document.getElementById("Moblie").value = index.mobile;
-    document.getElementById("ID").value = index.ID;
-}
-
-if (window.location.href.includes('UpdateAndDelete.html')) {
-    getDataFromDB();
 }
 
 
@@ -310,8 +273,8 @@ function searchByName(name) {
 
 
     for (let i = 0; i < data.length; i++) {
-
-        if (name === data[i].name.toLowerCase()) {
+        let tempName = data[i].name.toLowerCase().substring(0, data[i].name.indexOf(' '));
+        if (name === tempName ) {
 
             // console.log(data);
             const newRow = table.insertRow();
@@ -339,7 +302,6 @@ function searchByName(name) {
         }
     }
 }
-
 function searchByID(ID) {
     GlobalIDs.length = 0;
     const table = document.getElementsByTagName("table")[0];
@@ -381,20 +343,20 @@ function searchByID(ID) {
 }
 
 
-// document.addEventListener('click', () => {
-//     const searchButton = document.getElementById("search-button");
-//     const idOption = document.getElementById("idOption");
+document.addEventListener('click', () => {
+    const searchButton = document.getElementById("search-button");
+    const idOption = document.getElementById("idOption");
 
-//     searchButton.addEventListener("click", () => {
-//         let userInputValue = document.getElementById('userInput').value;
-//         if (idOption.checked) {
-//             searchByID(userInputValue);
-//         } else {
-//             searchByName(userInputValue.toLowerCase());
+    searchButton.addEventListener("click", () => {
+        let userInputValue = document.getElementById('userInput').value;
+        if (idOption.checked) {
+            searchByID(userInputValue);
+        } else {
+            searchByName(userInputValue.toLowerCase());
 
-//         }
-//     });
-// });
+        }
+    });
+});
 
 function saveStatus() {
     let flag = false;
@@ -402,7 +364,7 @@ function saveStatus() {
 
     for (let i = 0; i < GlobalIDs.length; i++) {
 
-        let string = "active" + GlobalIDs[i];
+        let string = "active" + GlobalIDs[i] ;
         let element = document.getElementById(string);
         let status = element.checked;
 
@@ -418,9 +380,9 @@ function saveStatus() {
     if (flag) {
         alert("Status saved")
     }
-    localStorage.setItem("allStudents", JSON.stringify(data));
+   localStorage.setItem("allStudents", JSON.stringify(data));
 }
-if (window.location.href.indexOf("studentStatusPage.html") > -1) {
+if(window.location.href.indexOf("studentStatusPage.html") > -1) {
     viewAll();
-    // console.log("This function will execute when the specific page loads");
+  // console.log("This function will execute when the specific page loads");
 }
