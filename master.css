@@ -35,10 +35,6 @@
   height: 70px;
 }
 
-.header ul li:first-child {
-  font-weight: bold;
-}
-
 #studentoptions {
   background-color: #393E46;
   color: white;
@@ -319,7 +315,7 @@ input[type="password"] {
   font-size: 30px;
   padding: 15px;
   margin-top: 36px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   border-radius: 20px;
   width: 40%;
   text-align: center;
@@ -354,7 +350,7 @@ select {
   border-radius: 10px;
   width: 350px;
   height: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .BodyOfForm form div select {
@@ -383,6 +379,7 @@ input::placeholder {
 
 .Send {
   margin: 60px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
 }
@@ -427,11 +424,13 @@ input::placeholder {
 .Activation input {
   display: inline;
   width: 50px;
+  margin-left: 20px;
 }
 
 .Activation label {
   font-size: 20px;
   margin-top: 0px;
+  
 }
 
 

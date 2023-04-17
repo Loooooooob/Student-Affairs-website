@@ -18,8 +18,6 @@
                     <option value="">Students</option>
                     <option value="AddNewStudent.html">Add</option>
                     <option value="studentStatusPage.html">Status</option>
-                    <option value="UpdateAndDelete.html">Update</option>
-                    <option value="AssignDep.html">Department</option>
                     <option value="StudentDataBase.html">ActiveStudents</option>
                 </select></li>
             <li><a href="about.html">About Us</a></li>
@@ -35,7 +33,7 @@
     </div>
 
     <div class="BodyOfForm">
-        <form>
+        <form id="myForm">
             <div>
                 <label>Name
                     <input type="text" id="NameOfStudent" placeholder="Full name" value="">
@@ -81,7 +79,7 @@
                     </select>
                 </label>
                 <label>GPA
-                    <input id="gpa" type="number" placeholder="3.41">
+                    <input id="gpa" type="number" placeholder="ex: 3.41">
                 </label>
             </div>
             <div>
@@ -89,24 +87,24 @@
                     <label>Gender</label>
                     <label for="">
                         <input id="Gender" type="radio" name="Gender" value="male">Male
-                        <input id="Gender" type="radio" name="Gender" value="female">Female
+                        <input id="Gender" type="radio" name="Gender" value="female" required>Female
                     </label>
                 </div>
                 <div class="Activation">
                     <label>Activation Status</label>
                     <label for="">
-                        <input id="Active" type="radio" name="ActivationStutes" value="Active">Active
-                        <input id="Active" type="radio" name="ActivationStutes" value="NotActive">Not Active
+                        <input id="Active" type="radio" name="ActivationStutes" value="Active" required>Active
+                        <input id="Active" type="radio" name="ActivationStutes" value="NotActive">Inactive
                     </label>
                 </div>
+            </div>
+            <div class="Send">
+                <button type="submit" onclick="checkValidation()">Update</button>
+                <button type="reset" onclick="deleteStudentInfo()">Delete</button>
             </div>
         </form>
     </div>
 
-    <div class="Send">
-        <button onclick="checkIdUpdate()">Update</button>
-        <button type="reset" onclick="deleteStudentInfo()">Delete</button>
-    </div>
 
     <div class="footer" style="height: 60px;">
         <p>Thank you for visiting Student Affairs. We look forward to serving you.</p>

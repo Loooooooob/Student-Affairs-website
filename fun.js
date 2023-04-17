@@ -7,6 +7,7 @@ if (localStorage.getItem("allStudents") != null) {
 } else {
     data = [];
 }
+
 // go to page from select options in header 
 function goToPage() {
     var select = document.getElementById("studentoptions");
@@ -20,16 +21,48 @@ function goToPage() {
         }
     }
 }
+
+// function goToPageAbout() {
+//     if (localStorage.getItem("isloggedin") === "true") {
+//         window.location.href = "about.html";
+//     } else {
+//         alert("Please log in first");
+//         //pop_up();
+//     }
+// }
+
 // change page from select options in active student table
 function ChangePage(select) {
     var selectedOption = select.options[select.selectedIndex];
-
     if (selectedOption.value != "") {
         if (localStorage.getItem("isloggedin") === "true") {
             window.location.href = selectedOption.value;
         }
     }
 }
+
+// function ChangePage(select) {
+//     if (!select) {
+//         return;
+//     }
+//     var selectedOption = select.options[select.selectedIndex];
+//     if (selectedOption && selectedOption.value !== "") {
+//         var isLoggedIn = localStorage.getItem("isloggedin");
+//         if (isLoggedIn === "true") {
+//             var pageUrl = selectedOption.value;
+//             if (pageUrl == "AssignDep.html") {
+//                 if (checkLevelThree()) {
+//                     window.location.href = pageUrl;
+//                 } else {
+//                     alert("You can add department only for level 3 students");
+//                 }
+//             } else {
+//                 window.location.href = pageUrl;
+//             }
+//         }
+//     }
+// }
+
 //switch login and logout button
 function switchbtn() {
     if (localStorage.getItem("isloggedin") === "true") {
@@ -40,6 +73,7 @@ function switchbtn() {
         document.getElementById("btnlogout").style.zIndex = "1";
     }
 }
+
 //logout function
 function logout() {
     localStorage.setItem("isloggedin", false);
@@ -51,10 +85,12 @@ function logout() {
         window.location.href = window.location.href;
     }
 }
+
 //go to home page
 function gotohomepage() {
     window.location.href = "home.html";
 }
+
 //check level and set department
 function checklevel() {
     var select = document.getElementById("Level");
@@ -63,14 +99,15 @@ function checklevel() {
         document.getElementById("Department").value = "General";
     }
 }
+
 //remove access from logged out user from pressing back button to go to the previous page
 window.onload = function () {
     switchbtn();
-    if (localStorage.getItem("isloggedin") !== "true" && window.location.href.indexOf("/home.html") === -1) {
+    if ((!window.location.href.indexOf("/about.html")) && localStorage.getItem("isloggedin") !== "true" && window.location.href.indexOf("/home.html") === -1) {
         window.location.href = "home.html";
     }
-
 };
+
 //class for student object
 class Student {
     constructor(name, ID, mobile, email, dateOfBirth, level, department, active, gender, gpa) {
@@ -86,9 +123,32 @@ class Student {
         this.gpa = gpa;
     }
 }
+
 //set data to local storage
 function set(s) {
     localStorage.setItem("allStudents", JSON.stringify(s));
+}
+
+// function to check if the inputs is empty or not
+function validation(id) {
+    var element = document.getElementById(id);
+    if (element.value == "") {
+        element.setCustomValidity("Please fill this field");
+        return false;
+    } else {
+        element.setCustomValidity("");
+    }
+    return true;
+}
+
+
+function checkValidation() {
+    validation("ID");
+    validation("NameOfStudent");
+    validation("Dateofbirth");
+    validation("Level");
+    validation("Department");
+    validation("gpa");
 }
 
 /*-------------------------------------------------------------------Home Page--------------------------------------------------------------*/
@@ -98,11 +158,13 @@ function close_modal() {
     document.getElementById("login-modal").style.display = "none";
     document.getElementById("homeid").style.filter = "blur(0px)";
 }
+
 //pop up login screen
 function pop_up() {
     document.getElementById("login-modal").style.display = "block";
     document.getElementById("homeid").style.filter = "blur(5px)";
 }
+
 //check valid users and password
 function checkData() {
     const userName = document.querySelector(".EnterUsername").value;
@@ -118,17 +180,28 @@ function checkData() {
 
 /*---------------------------------------------------------------Add new student Page----------------------------------------------------------*/
 
+var x = document.getElementById("addForm");
+if (x) {
+    x.addEventListener("submit", function (y) {
+        y.preventDefault();
+        if (checkid()) {
+            addStudentInfo();
+        }
+    });
+}
+
 //function to check if the id already exsist
 function checkid() {
     const id = document.querySelector("#ID").value;
     for (let i = 0; i < data.length; i++) {
         if (data[i].ID == id) {
             alert("The id already exsist");
-            return;
+            return false;
         }
     }
-    addStudentInfo();
+    return true;
 }
+
 //function to set data to a new student to the database
 function addStudentInfo() {
     const name = document.querySelector("#NameOfStudent").value;
@@ -196,7 +269,7 @@ function viewTable() {
             table += `
     <tr class="trdb">
     <td class="tddb">${data[i].name}</td>
-    <td class="tddb">${data[i].ID}</td>
+    <td class="tddb" id = "tdID">${data[i].ID}</td>
     <td class="tddb">${data[i].dateOfBirth}</td>
     <td class="tddb">${data[i].gpa}</td>
     <td class="tddb">${data[i].email}</td>
@@ -218,6 +291,9 @@ function viewTable() {
     }
     body.innerHTML = table;
 }
+
+
+
 //if condition to add the data in active student page
 if (window.location.href.includes("StudentDataBase.html")) {
     viewTable();
@@ -225,8 +301,16 @@ if (window.location.href.includes("StudentDataBase.html")) {
 
 /*---------------------------------------------------------------Update page functions-------------------------------------------------*/
 
+var a = document.getElementById("myForm");
+if (a) {
+    a.addEventListener("submit", function (y) {
+        y.preventDefault();
+        updateStudentInfo();
+    });
+}
+
 //function to get data of specific student from database
-function getDataFromDB() { 
+function getDataFromDB() {
     var currentLink = window.location.href;
     var url = new URL(currentLink);
     var getParameter = url.searchParams;
@@ -265,6 +349,7 @@ function getDataFromDB() {
 if (window.location.href.includes('UpdateAndDelete.html')) {
     getDataFromDB();
 }
+
 //function to update data of specific student in database
 function updateStudentInfo() {
     var currentLink = window.location.href;
@@ -314,18 +399,27 @@ function updateStudentInfo() {
         window.location.href = "studentStatusPage.html";
     }
 }
+
 //function to delete data of specific student in database
-function deleteStudentInfo() { 
+function deleteStudentInfo() {
+    var confirmation = confirm("Are you sure you want to delete?");
     var id;
     var link = window.location.href;
     var url = new URL(link);
     var searchPrams = url.searchParams;
     id = searchPrams.get('id');
+
+    if (!confirmation) {
+        window.location.href = "UpdateAndDelete.html?id=" + id;
+        return;
+    }
+
     var index = data.findIndex(e => e.ID == id);
     data.splice(index, 1);
     set(data);
     window.location.href = "StudentDataBase.html";
 }
+
 // function to check if the id is already exsist or not
 function checkIdUpdate() {
     var currentLink = window.location.href;
@@ -340,13 +434,12 @@ function checkIdUpdate() {
             return;
         }
     }
-    updateStudentInfo();
 }
 
 /*------------------------------------------------------------Department page functions--------------------------------------------------*/
 
 //function to get data of specific student from database
-function getDataFromDB_dep() { 
+function getDataFromDB_dep() {
     var currentLink = window.location.href;
     var url = new URL(currentLink);
     var getParameter = url.searchParams;
@@ -357,10 +450,12 @@ function getDataFromDB_dep() {
     document.getElementById("Level").value = index.level;
     document.getElementById("ID").value = index.ID;
 }
+
 //if condition to add the data in Department page
 if (window.location.href.includes('AssignDep.html')) {
     getDataFromDB_dep();
 }
+
 //function to set data of specific student from database
 function depStudentInfo() {
     var currentLink = window.location.href;
@@ -384,6 +479,19 @@ function depStudentInfo() {
         window.location.href = "StudentDataBase.html";
     } else {
         window.location.href = "studentStatusPage.html";
+    }
+}
+
+if (window.location.href.includes("AssignDep.html?id")) {
+    var currentLink = window.location.href;
+    var url = new URL(currentLink);
+    var getParameter = url.searchParams;
+    var getID = getParameter.get("id");
+    var s = data.find(allStudents => allStudents.ID == getID);
+
+    if (s.level.toString() != "3") {
+        alert("You can add department only for level 3 students");
+        window.location.href = "StudentDataBase.html";
     }
 }
 
@@ -461,7 +569,7 @@ function searchByName(name) {
         let tempName = data[i].name.toLowerCase().substring(0, data[i].name.indexOf(' '));
 
         // Revert to the original name.
-        data[i].name = data[i].name.slice(0,-1);
+        data[i].name = data[i].name.slice(0, -1);
 
         // If user input was the first name or full name, then pass .
         if (name === tempName || name === data[i].name.toLowerCase()) {
@@ -554,12 +662,12 @@ document.addEventListener('click', () => {
 // saves the changes made by the user in the students' activity status.
 
 function saveStatus() {
-   // Flag is a boolean variable that determines whether the user changed at least one status.
+    // Flag is a boolean variable that determines whether the user changed at least one status.
     let flag = false;
     for (let i = 0; i < GlobalIDs.length; i++) {
         // We can easily access the current table that the user wants to save its status by assisting with GlobalIDs data.
 
-        let string = "active" + GlobalIDs[i] ;
+        let string = "active" + GlobalIDs[i];
         let element = document.getElementById(string);
         let status = element.checked;
 
@@ -578,12 +686,12 @@ function saveStatus() {
         alert("Status saved")
     }
 
-   // Put the new data into local storage.
-   localStorage.setItem("allStudents", JSON.stringify(data));
+    // Put the new data into local storage.
+    localStorage.setItem("allStudents", JSON.stringify(data));
 }
 // If user opens the Student status page , run "viewAll" function.
-if(window.location.href.indexOf("studentStatusPage.html") > -1) {
+if (window.location.href.indexOf("studentStatusPage.html") > -1) {
 
     viewAll();
-  // console.log("This function will execute when the specific page loads");
+    // console.log("This function will execute when the specific page loads");
 }
