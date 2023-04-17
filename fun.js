@@ -443,6 +443,7 @@ function searchByName(name) {
 
 
     for (let i = 0; i < data.length; i++) {
+        data[i].name += ' ';
         let tempName = data[i].name.toLowerCase().substring(0, data[i].name.indexOf(' '));
         if (name === tempName ) {
 
