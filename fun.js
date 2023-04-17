@@ -1,30 +1,11 @@
-/*get data from local storage*/ 
+/*--------------------------------------------------------function used in several pages--------------------------------------------------*/
+
+/*get data from local storage*/
 var data;
 if (localStorage.getItem("allStudents") != null) {
     data = JSON.parse(localStorage.getItem("allStudents"));
 } else {
     data = [];
-}
-
-function checkid(){
-  const id=document.querySelector("#ID").value;
-  for (let i = 0; i < data.length; i++) {
-    if(data[i].ID==id){
-      alert("The id already exsist");
-      return;
-    }
-  }
-  addStudentInfo();
-}
-
-function pop_up() {
-    document.getElementById("login-modal").style.display = "block";
-    document.getElementById("homeid").style.filter = "blur(5px)";
-}
-
-function close_modal() {
-    document.getElementById("login-modal").style.display = "none";
-    document.getElementById("homeid").style.filter = "blur(0px)";
 }
 
 function goToPage() {
@@ -50,18 +31,6 @@ function ChangePage(select) {
     }
 }
 
-function checkData() {
-    const userName = document.querySelector(".EnterUsername").value;
-    const password = document.querySelector(".EnterPassword").value;
-    if ((userName === "Tawfik" && password === "12345") || (userName === "Habiba" && password === "123456") || (userName === "Amira" && password === "1234567") || (userName === "Omran" && password === "12345678") || (userName === "Alaa" && password === "123456789") || (userName === "Karem" && password === "1234567890")) {
-        close_modal();
-        localStorage.setItem("isloggedin", true);
-        switchbtn();
-    } else {
-        alert("Username or password incorrect");
-    }
-}
-
 function switchbtn() {
     if (localStorage.getItem("isloggedin") === "true") {
         document.getElementById("btnlogin").style.zIndex = "1";
@@ -83,34 +52,8 @@ function logout() {
     }
 }
 
-window.onload = function () {
-    switchbtn();
-    if (localStorage.getItem("isloggedin") !== "true" && window.location.href.indexOf("/home.html") === -1) {
-        window.location.href = "home.html";
-    }
-
-};
-function gotohomepage(){
-  window.location.href = "home.html";
- }
-
-function Search() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("searchbar");
-    filter = input.value.toUpperCase();
-    table = document.getElementsByClassName("tabledb")[0];
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-        }
-    }
+function gotohomepage() {
+    window.location.href = "home.html";
 }
 
 function checklevel() {
@@ -120,6 +63,14 @@ function checklevel() {
         document.getElementById("Department").value = "General";
     }
 }
+
+window.onload = function () {
+    switchbtn();
+    if (localStorage.getItem("isloggedin") !== "true" && window.location.href.indexOf("/home.html") === -1) {
+        window.location.href = "home.html";
+    }
+
+};
 
 class Student {
     constructor(name, ID, mobile, email, dateOfBirth, level, department, active, gender, gpa) {
@@ -136,16 +87,57 @@ class Student {
     }
 }
 
+function set(s) {
+    localStorage.setItem("allStudents", JSON.stringify(s));
+}
+
+/*----------------------------------------------------------Home Page--------------------------------------------------------------*/
+
+function close_modal() {
+    document.getElementById("login-modal").style.display = "none";
+    document.getElementById("homeid").style.filter = "blur(0px)";
+}
+
+function pop_up() {
+    document.getElementById("login-modal").style.display = "block";
+    document.getElementById("homeid").style.filter = "blur(5px)";
+}
+
+function checkData() {
+    const userName = document.querySelector(".EnterUsername").value;
+    const password = document.querySelector(".EnterPassword").value;
+    if ((userName === "Tawfik" && password === "12345") || (userName === "Habiba" && password === "123456") || (userName === "Amira" && password === "1234567") || (userName === "Omran" && password === "12345678") || (userName === "Alaa" && password === "123456789") || (userName === "Karem" && password === "1234567890")) {
+        close_modal();
+        localStorage.setItem("isloggedin", true);
+        switchbtn();
+    } else {
+        alert("Username or password incorrect");
+    }
+}
+
+/*---------------------------------------------------Add new student Page----------------------------------------------------------*/
+
+function checkid() {
+    const id = document.querySelector("#ID").value;
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].ID == id) {
+            alert("The id already exsist");
+            return;
+        }
+    }
+    addStudentInfo();
+}
+
 function addStudentInfo() {
-  const name = document.querySelector("#NameOfStudent").value;
-  const ID = document.querySelector("#ID").value;
-  const mobile = document.querySelector("#Moblie").value;
-  const email = document.querySelector("#Email").value;
-  const dateOfBirth = document.querySelector("#Dateofbirth").value;
-  const level = document.querySelector("#Level").value;
-  const department = document.querySelector("#Department").value;
-  var active = document.getElementsByName('ActivationStutes');
-  const gpa = document.querySelector("#gpa").value;
+    const name = document.querySelector("#NameOfStudent").value;
+    const ID = document.querySelector("#ID").value;
+    const mobile = document.querySelector("#Moblie").value;
+    const email = document.querySelector("#Email").value;
+    const dateOfBirth = document.querySelector("#Dateofbirth").value;
+    const level = document.querySelector("#Level").value;
+    const department = document.querySelector("#Department").value;
+    var active = document.getElementsByName('ActivationStutes');
+    const gpa = document.querySelector("#gpa").value;
     var avtiveValue;
     for (var i = 0, length = active.length; i < length; i++) {
         if (active[i].checked) {
@@ -174,9 +166,25 @@ function addStudentInfo() {
     }
 }
 
-/*st data in local storage*/
-function set(s) {
-    localStorage.setItem("allStudents", JSON.stringify(s));
+/*-------------------------------------------All Active Student Page-----------------------------------------------------------*/
+
+function Search() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchbar");
+    filter = input.value.toUpperCase();
+    table = document.getElementsByClassName("tabledb")[0];
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
 }
 
 function viewTable() {
@@ -198,10 +206,10 @@ function viewTable() {
     <td class="tddb">${data[i].level}</td>
     <td class="tddb">${data[i].department}</td>
     <td class="tddb">
-      <select id="databaseoptions1" class="databaseoptions" onchange="ChangePage(databaseoptions1)">
+      <select id="databaseoptions1" class="databaseoptions" onchange="ChangePage(this)">
         <option value=""></option>
-        <option value="UpdateAndDelete.html">Update</option>
-        <option value="AssignDep.html">Department</option>
+        <option value="UpdateAndDelete.html?id=${data[i].ID}">Update</option>
+        <option value="AssignDep.html?id=${data[i].ID}">Department</option>
       </select>
     </td>
   </tr>
@@ -215,9 +223,181 @@ if (window.location.href.includes("StudentDataBase.html")) {
     viewTable();
 }
 
+/*-------------------------------------------------------------Update page functions-------------------------------------------------*/
+
+function getDataFromDB() { /*function to get data of specific student from database*/
+    var currentLink = window.location.href;
+    var url = new URL(currentLink);
+    var getParameter = url.searchParams;
+    var getID = getParameter.get("id");
+    var index = data.find(allStudents => allStudents.ID == getID);
+
+    console.log(index);
+
+    document.getElementById("NameOfStudent").value = index.name;
+
+    var active = document.getElementsByName('ActivationStutes');
+    for (var i = 0; i < active.length; i++) {
+        if (active[i].value == (index.active ? "Active" : "Inactive")) {
+            active[i].checked = true;
+            break;
+        }
+    }
+
+    var gender = document.getElementsByName('Gender');
+    for (var i = 0; i < gender.length; i++) {
+        if (gender[i].value == index.gender) {
+            gender[i].checked = true;
+            break;
+        }
+    }
+
+    document.getElementById("gpa").value = index.gpa;
+    document.getElementById("Department").value = index.department;
+    document.getElementById("Level").value = index.level;
+    document.getElementById("Dateofbirth").value = index.dateOfBirth;
+    document.getElementById("Email").value = index.email;
+    document.getElementById("Moblie").value = index.mobile;
+    document.getElementById("ID").value = index.ID;
+}
+
+/*if condition to add the data in update page*/
+if (window.location.href.includes('UpdateAndDelete.html')) {
+    getDataFromDB();
+}
+
+function updateStudentInfo() { /*function to update data of specific student in database*/
+    var currentLink = window.location.href;
+    var url = new URL(currentLink);
+    var getParameter = url.searchParams;
+    var getID = getParameter.get("id");
+    var index = data.findIndex(allStudents => allStudents.ID == getID);
+
+    const name = document.querySelector("#NameOfStudent").value;
+    const ID = document.querySelector("#ID").value;
+    const mobile = document.querySelector("#Moblie").value;
+    const email = document.querySelector("#Email").value;
+    const dateOfBirth = document.querySelector("#Dateofbirth").value;
+    const level = document.querySelector("#Level").value;
+    const department = document.querySelector("#Department").value;
+    var active = document.getElementsByName('ActivationStutes');
+    const gpa = document.querySelector("#gpa").value;
+    var avtiveValue;
+    for (var i = 0, length = active.length; i < length; i++) {
+        if (active[i].checked) {
+            avtiveValue = active[i].value == "Active" ? true : false;
+            break;
+        }
+    }
+
+    var gender = document.getElementsByName('Gender');
+    var genderValue;
+    for (var i = 0, length = gender.length; i < length; i++) {
+        if (gender[i].checked) {
+            genderValue = gender[i].value;
+            break;
+        }
+    }
+
+    data[index].name = name;
+    data[index].ID = ID;
+    data[index].mobile = mobile;
+    data[index].email = email;
+    data[index].dateOfBirth = dateOfBirth;
+    data[index].level = level;
+    data[index].department = department;
+    data[index].active = avtiveValue;
+    data[index].gender = genderValue;
+    data[index].gpa = gpa;
+
+    set(data);
+
+    if (data[index].active == true) {
+        window.location.href = "StudentDataBase.html";
+    } else {
+        window.location.href = "studentStatusPage.html";
+    }
+}
+
+function deleteStudentInfo() { /*function to delete data of specific student in database*/
+    var id;
+    var link = window.location.href;
+    var url = new URL(link);
+    var searchPrams = url.searchParams;
+    id = searchPrams.get('id');
+    var index = data.findIndex(e => e.ID == id);
+    data.splice(index, 1);
+    set(data);
+    window.location.href = "StudentDataBase.html";
+}
+
+function checkIdUpdate() {
+    var currentLink = window.location.href;
+    var url = new URL(currentLink);
+    var getParameter = url.searchParams;
+    var getID = getParameter.get("id");
+
+    const id = document.querySelector("#ID").value;
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].ID != getID && data[i].ID == id) {
+            alert("The id already exsist");
+            return;
+        }
+    }
+    updateStudentInfo();
+}
+
+/*--------------------------------------------------------Department page functions--------------------------------------------------*/
+
+function getDataFromDB_dep() { /*function to get data of specific student from database*/
+    var currentLink = window.location.href;
+    var url = new URL(currentLink);
+    var getParameter = url.searchParams;
+    var getID = getParameter.get("id");
+    var index = data.find(allStudents => allStudents.ID == getID);
+    document.getElementById("NameOfStudent").value = index.name;
+    document.getElementById("Department").value = index.department;
+    document.getElementById("Level").value = index.level;
+    document.getElementById("ID").value = index.ID;
+}
+
+/*if condition to add the data in Department page*/
+if (window.location.href.includes('AssignDep.html')) {
+    getDataFromDB_dep();
+}
+
+function depStudentInfo() { /*function to delete specific student in database*/
+    var currentLink = window.location.href;
+    var url = new URL(currentLink);
+    var getParameter = url.searchParams;
+    var getID = getParameter.get("id");
+    var index = data.findIndex(allStudents => allStudents.ID == getID);
+
+    const nameField = document.querySelector("#NameOfStudent");
+    const idField = document.querySelector("#ID");
+    const levelField = document.querySelector("#Level");
+    nameField.readOnly = true;
+    nameField.disabled = true;
+    idField.readOnly = true;
+    idField.disabled = true;
+    levelField.readOnly = true;
+    levelField.disabled = true;
 
 
-/*===============================================================================*/
+
+    const department = document.querySelector("#Department").value;
+
+    data[index].department = department;
+    set(data);
+
+    if (data[index].active == true) {
+        window.location.href = "StudentDataBase.html";
+    } else {
+        window.location.href = "studentStatusPage.html";
+    }
+}
+
+/*-------------------------------------------------------------Status page functions--------------------------------------------------*/
 let GlobalIDs = [];
 
 function viewAll() {
@@ -273,8 +453,8 @@ function searchByName(name) {
 
 
     for (let i = 0; i < data.length; i++) {
-
-        if (name === data[i].name.toLowerCase()) {
+        let tempName = data[i].name.toLowerCase().substring(0, data[i].name.indexOf(' '));
+        if (name === tempName ) {
 
             // console.log(data);
             const newRow = table.insertRow();
@@ -302,7 +482,6 @@ function searchByName(name) {
         }
     }
 }
-
 function searchByID(ID) {
     GlobalIDs.length = 0;
     const table = document.getElementsByTagName("table")[0];
