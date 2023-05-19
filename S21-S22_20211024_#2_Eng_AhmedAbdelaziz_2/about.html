@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Affairs website</title>
+    <link rel="stylesheet" href="master.css">
+    <script src="fun.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><select id="studentoptions" onchange="goToPage()">
+                    <option value="">Students</option>
+                    <option value="AddNewStudent.html">Add</option>
+                    <option value="studentStatusPage.html">Status</option>
+                    <option value="StudentDataBase.html">ActiveStudents</option>
+                </select></li>
+            <li><a href="about.html">About Us</a></li>
+            <li class="buttoninout">
+                <button id="btnlogin" onclick="pop_up()" class="modal-btn">Login</button>
+                <button id="btnlogout" onclick="logout()" class="modal-btn">Logout</button>
+            </li>
+        </ul>
+    </header>
+    <hr>
+    <div class="page_title_add">
+        <h1 id="AboutUs">About Us</h1>
+    </div>
+    <p class="AboutContent">
+        Welcome to Student Affairs,<br>
+        the online platform dedicated to serving the needs of students everywhere.<br>
+        We established this website in 2023 with the goal of providing resource for students to connect with
+        their peers,<br>
+        discover opportunities for development, and access helpful information and resources.<br>
+        Our mission is to empower students by providing them with the tools they need to succeed academically,
+        professionally,<br>
+        and personally. Whether you are a high school<br>
+        student looking to explore college options,a college student seeking career<br>
+        guidance, or a graduate student preparing for the next stage of your professional<br>
+        journey, we are here to support you.<br>
+    </p>
+</body>
+<div class="footer">
+    <p>Thank you for visiting Student Affairs. We look forward to serving you</p>
+</div>
+
+</html>

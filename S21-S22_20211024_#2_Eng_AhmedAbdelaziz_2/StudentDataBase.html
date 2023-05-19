@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Student Affairs website</title>
+	<link rel="stylesheet" href="master.css">
+
+</head>
+
+<body>
+	<header class="header">
+		<ul>
+			<li><a href="Home.html">Home</a></li>
+			<li><select id="studentoptions" onchange="goToPage()">
+					<option value="">Students</option>
+					<option value="AddNewStudent.html">Add</option>
+					<option value="studentStatusPage.html">Status</option>
+					<option value="StudentDataBase.html">ActiveStudents</option>
+				</select></li>
+			<li><a href="about.html">About Us</a></li>
+			<li class="buttoninout">
+				<button id="btnlogin" onclick="pop_up()" class="modal-btn">Login</button>
+				<button id="btnlogout" onclick="logout()" class="modal-btn">Logout</button>
+			</li>
+		</ul>
+	</header>
+	<hr>
+	<div class="page_title_add">
+		<h1 class="databaseh1">Student Table</h1>
+	</div>
+
+	<div class="search">
+		<div class="searchimage1"></div>
+		<input id="searchbar" type="text" placeholder="Search by Name" onkeyup="Search()" ;>
+	</div>
+
+	<table class="tabledb">
+		<tr class="trthdb">
+			<th class="thdb">Name</th>
+			<th class="thdb">ID</th>
+			<th class="thdb">Date Of Birth</th>
+			<th class="thdb">GPA</th>
+			<th class="thdb">Email</th>
+			<th class="thdb">Gender</th>
+			<th class="thdb">Status</th>
+			<th class="thdb">Phone Number</th>
+			<th class="thdb">Level</th>
+			<th class="thdb">Department</th>
+			<th class="thdb"></th>
+		</tr>
+
+		<tbody id="tcontent"></tbody>
+
+	
+	</table>
+
+	<div class="footer">
+		<p>Thank you for visiting Student Affairs. We look forward to serving you</p>
+	</div>
+	<script src="fun.js"></script>
+</body>
+
+</html>

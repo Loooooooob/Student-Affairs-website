@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Affairs website</title>
+    <link rel="stylesheet" href="master.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><select id="studentoptions" onchange="goToPage()">
+                    <option value="">Students</option>
+                    <option value="AddNewStudent.html">Add</option>
+                    <option value="studentStatusPage.html">Status</option>
+                    <option value="StudentDataBase.html">ActiveStudents</option>
+                </select></li>
+            <li><a href="about.html">About Us</a></li>
+            <li class="buttoninout">
+                <button id="btnlogin" onclick="pop_up()" class="modal-btn">Login</button>
+                <button id="btnlogout" onclick="logout()" class="modal-btn">Logout</button>
+            </li>
+        </ul>
+    </header>
+
+    <div class="headlinediv">
+        <h1>Update Data For A Student</h1>
+    </div>
+
+    <div class="BodyOfForm">
+        <form id="myForm">
+            <div>
+                <label>Name
+                    <input type="text" id="NameOfStudent" placeholder="Full name" value="">
+                </label>
+                <label>ID
+                    <input id="ID" type="number" placeholder="ID">
+                </label>
+            </div>
+
+            <div>
+                <label>Moblie
+                    <input id="Moblie" type="tel" placeholder="+02">
+                </label>
+
+                <label>Email
+                    <input id="Email" type="email" placeholder="example@gmail.com">
+                </label>
+            </div>
+
+            <div>
+                <label>Date of birth
+                    <input id="Dateofbirth" type="date">
+                </label>
+
+                <label>Level
+                    <select id="Level" name="choice">
+                        <option class="op" value="1">Level 1</option>
+                        <option class="op" value="2" selected>Level 2</option>
+                        <option class="op" value="3">Level 3</option>
+                        <option class="op" value="4">Level 4</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <label>Department
+                    <select id="Department" name="choice" onclick="checklevel()" disabled>
+                        <option class="op" value="General" selected>General</option>
+                        <option class="op" value="CS">CS</option>
+                        <option class="op" value="IS">IS</option>
+                        <option class="op" value="AI">AI</option>
+                        <option class="op" value="IT">IT</option>
+                        <option class="op" value="DS">DS</option>
+                    </select>
+                </label>
+                <label>GPA
+                    <input id="gpa" type="number" placeholder="ex: 3.41">
+                </label>
+            </div>
+            <div>
+                <div class="Gender">
+                    <label>Gender</label>
+                    <label for="">
+                        <input id="Gender" type="radio" name="Gender" value="male">Male
+                        <input id="Gender" type="radio" name="Gender" value="female" required>Female
+                    </label>
+                </div>
+                <div class="Activation">
+                    <label>Activation Status</label>
+                    <label for="">
+                        <input id="Active" type="radio" name="ActivationStutes" value="Active" required>Active
+                        <input id="Active" type="radio" name="ActivationStutes" value="NotActive">Inactive
+                    </label>
+                </div>
+            </div>
+            <div class="Send">
+                <button type="submit" onclick="checkValidation()">Update</button>
+                <button type="reset" onclick="deleteStudentInfo()">Delete</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="footer" style="height: 60px;">
+        <p>Thank you for visiting Student Affairs. We look forward to serving you.</p>
+    </div>
+    <script src="fun.js"></script>
+</body>
+
+</html>

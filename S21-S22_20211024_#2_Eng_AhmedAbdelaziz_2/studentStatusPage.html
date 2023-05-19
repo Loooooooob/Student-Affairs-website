@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Change student status page</title>
+    <link rel="stylesheet" href="master.css">
+</head>
+
+<body>
+    <header class="header">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><select id="studentoptions" onchange="goToPage()">
+                    <option value="">Students</option>
+                    <option value="AddNewStudent.html">Add</option>
+                    <option value="studentStatusPage.html">Status</option>
+                    <option value="StudentDataBase.html">ActiveStudents</option>
+                </select></li>
+            <li><a href="about.html">About Us</a></li>
+            <li class="buttoninout">
+                <button id="btnlogin" onclick="pop_up()" class="modal-btn">Login</button>
+                <button id="btnlogout" onclick="logout()" class="modal-btn">Logout</button>
+            </li>
+        </ul>
+    </header>
+    <div class="headlinediv">
+        <h1>Change student status</h1>
+    </div>
+    <div id=search-bar>
+        <label for="userInput"></label>
+        <input type="text" id="userInput">
+
+        <label>
+            <input type="radio" id="idOption" name="option" value="ID" checked>
+            &nbsp;&nbsp;ID
+        </label>
+
+        <label>
+            <input type="radio" id="nameOption" name="option" value="Name">
+            &nbsp;&nbsp;Name
+        </label>
+        <button id="search-button">search</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Student ID</th>
+                <th>Current Status</th>
+            </tr>
+        </thead>
+    </table>
+
+    <button id="save-table" onclick="saveStatus()">Save status</button>
+    <div class="footer">
+        <p>Thank you for visiting Student Affairs. We look forward to serving you.</p>
+    </div>
+    <script src="fun.js"></script>
+</body>
+
+</html>
