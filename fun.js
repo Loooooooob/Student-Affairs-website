@@ -41,28 +41,6 @@ function ChangePage(select) {
     }
 }
 
-// function ChangePage(select) {
-//     if (!select) {
-//         return;
-//     }
-//     var selectedOption = select.options[select.selectedIndex];
-//     if (selectedOption && selectedOption.value !== "") {
-//         var isLoggedIn = localStorage.getItem("isloggedin");
-//         if (isLoggedIn === "true") {
-//             var pageUrl = selectedOption.value;
-//             if (pageUrl == "AssignDep.html") {
-//                 if (checkLevelThree()) {
-//                     window.location.href = pageUrl;
-//                 } else {
-//                     alert("You can add department only for level 3 students");
-//                 }
-//             } else {
-//                 window.location.href = pageUrl;
-//             }
-//         }
-//     }
-// }
-
 //switch login and logout button
 function switchbtn() {
     if (localStorage.getItem("isloggedin") === "true") {
@@ -140,7 +118,6 @@ function validation(id) {
     }
     return true;
 }
-
 
 function checkValidation() {
     validation("ID");
@@ -292,8 +269,6 @@ function viewTable() {
     body.innerHTML = table;
 }
 
-
-
 //if condition to add the data in active student page
 if (window.location.href.includes("StudentDataBase.html")) {
     viewTable();
@@ -303,9 +278,11 @@ if (window.location.href.includes("StudentDataBase.html")) {
 
 var a = document.getElementById("myForm");
 if (a) {
-    a.addEventListener("submit", function (y) {
-        y.preventDefault();
-        updateStudentInfo();
+    a.addEventListener("submit", function (a) {
+        a.preventDefault();
+        if (checkIdUpdate()) {
+            updateStudentInfo();
+        }
     });
 }
 
@@ -431,9 +408,10 @@ function checkIdUpdate() {
     for (let i = 0; i < data.length; i++) {
         if (data[i].ID != getID && data[i].ID == id) {
             alert("The id already exsist");
-            return;
+            return false;
         }
     }
+    return true;
 }
 
 /*------------------------------------------------------------Department page functions--------------------------------------------------*/
@@ -512,15 +490,12 @@ function viewAll() {
         '            </tr>\n' +
         '        </thead>';
 
-
     for (let i = 0; i < data.length; i++) {
         // insert each row and cell in "data" which is in local storage .
-
         const newRow = table.insertRow();
         const nameCell = newRow.insertCell(0);
         const idCell = newRow.insertCell(1);
         const statusCell = newRow.insertCell(2);
-
         GlobalIDs.push(data[i].ID);
 
         // Assign each cell
@@ -545,14 +520,12 @@ function viewAll() {
         if (table.rows.length % 2 === 1) {
             newRow.classList.add("even-row");
         }
-
     }
-
 }
+
 function searchByName(name) {
     // make GlobalIDs array empty to assign it with different IDs.
     GlobalIDs.length = 0;
-
     const table = document.getElementsByTagName("table")[0];
     table.innerHTML = ' <thead>\n' +
         '            <tr>\n' +
@@ -561,7 +534,6 @@ function searchByName(name) {
         '                <th>Current Status</th>\n' +
         '            </tr>\n' +
         '        </thead>';
-
 
     for (let i = 0; i < data.length; i++) {
         // add space to name to handle (one word name) case in substring function >> e.g. (mohamed, kareem, alaa)
@@ -600,6 +572,7 @@ function searchByName(name) {
         }
     }
 }
+
 function searchByID(ID) {
     GlobalIDs.length = 0;
     const table = document.getElementsByTagName("table")[0];
@@ -636,7 +609,6 @@ function searchByID(ID) {
                 newRow.classList.add("even-row");
             }
         }
-
     }
 }
 
@@ -658,9 +630,9 @@ document.addEventListener('click', () => {
         }
     });
 });
+
 // Save status function runs when user click "save status" button , it
 // saves the changes made by the user in the students' activity status.
-
 function saveStatus() {
     // Flag is a boolean variable that determines whether the user changed at least one status.
     let flag = false;
@@ -689,9 +661,9 @@ function saveStatus() {
     // Put the new data into local storage.
     localStorage.setItem("allStudents", JSON.stringify(data));
 }
+
 // If user opens the Student status page , run "viewAll" function.
 if (window.location.href.indexOf("studentStatusPage.html") > -1) {
-
     viewAll();
     // console.log("This function will execute when the specific page loads");
 }
